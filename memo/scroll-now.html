@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/default.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="https://kit.fontawesome.com/9ed5c8ba64.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+
+    <title>now-height</title>
+    <style>
+        .content{width:100%; height:1800px; background:rgba(0,0,0,0.3); overflow:scroll;}
+    </style>
+
+</head>
+<body>
+    <!-- 윈도우 스크롤 시 변수 >> now에 document.scrollTop 을 저장 >> now에 저장 되어 있는 값을 console.log에 불러와라 -->
+    <script>
+        $(window).scroll(function(){
+            var now=$(document).scrollTop();
+            console.log(now);
+        });
+    </script>
+        
+    <div class="content"></div>    
+
+</body>
+</html>

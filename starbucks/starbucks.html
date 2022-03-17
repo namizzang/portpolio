@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/starbuck.css">
+    <link rel="stylesheet" href="css/default.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/slick.css">
+    <link rel="stylesheet" href="css/slick-theme.css">
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
+    <!-- //font -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://kit.fontawesome.com/9ed5c8ba64.js" crossorigin="anonymous"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <title>starbucks</title>
+</head>
+<script>
+    $(document).ready(function () {
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 40) {
+                $("#header-wrapper").css({
+                    "background": "rgba(255,255,255,0.9)",
+                    "height": "90px"
+                });
+                $("#header-wrapper .clear").css({
+                    "padding-top": "30px"
+                });
+                $("#header-wrapper .center").css({
+                    "transform": "scale(0.7)"
+                });
+                $("#header-wrapper .clear .nav-menu").css({
+                    "color": "#333"
+                });
+            } else {
+                $("#header-wrapper").css({
+                    "background": "rgba(0,0,0,0)",
+                    "height": "120px"
+                });
+                $("#header-wrapper .center").css({
+                    "transform": "scale(1)"
+                });
+                $("#header-wrapper .clear").css({
+                    "padding-top": "40px"
+                });
+                $("#header-wrapper .clear .nav-menu").css({
+                    "color": "#fff"
+                });
+            }
+            $('.one-time').slick({
+                dots: true,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 1,
+                adaptiveHeight: true
+            });
+        });
+
+        $(window).scroll(function () {
+            var h = $(".test-img").offset().top;
+            if ($(this).scrollTop() > h - 600) {
+                $(".test-img").css({
+                    "margin-top": "0px",
+                    "opacity": "1"
+                });
+            }
+        });
+
+
+
+        $("#main-wrapper .active-img").css({
+            "left": "-270px",
+            "opacity": "1"
+        });
+
+        
+
+    });
+</script>
+
+<body>
+
+    <div class="menu-active">
+        <div class="inner">
+            <svg xmlns="http://www.w3.org/2000/svg" width="151" height="28" viewBox="0 0 151 28">
+                <text id="STARBUCKS" transform="translate(0 23)" fill="#fff" font-size="24" font-family="'\.AppleSystemUIFont'"><tspan x="0" y="0">STARBUCKS</tspan></text>
+                <text id="TM" transform="translate(134 26)" fill="#fff" font-size="11" font-family="'\.AppleSystemUIFont'"><tspan x="0" y="0">TM</tspan></text>
+            </svg>
+
+            <svg class="inner-star" xmlns="http://www.w3.org/2000/svg" width="65.09" height="65.09" viewBox="0 0 65.09 65.09">
+                <path id="다각형_2" data-name="다각형 2" d="M25,0l6.25,18.594L50,19.1l-14.887,12L40.451,50,25,38.82,9.549,50l5.338-18.906L0,19.1l18.75-.5Z" transform="translate(18.73) rotate(22)" fill="#fff" opacity="0.9"/>
+            </svg>
+            <svg class="inner-star-two" xmlns="http://www.w3.org/2000/svg" width="65.09" height="65.09" viewBox="0 0 65.09 65.09">
+                <path id="다각형_2" data-name="다각형 2" d="M25,0l6.25,18.594L50,19.1l-14.887,12L40.451,50,25,38.82,9.549,50l5.338-18.906L0,19.1l18.75-.5Z" transform="translate(18.73) rotate(22)" fill="#fff" opacity="0.9"/>
+            </svg>
+            <svg class="inner-star-three" xmlns="http://www.w3.org/2000/svg" width="65.09" height="65.09" viewBox="0 0 65.09 65.09">
+                <path id="다각형_2" data-name="다각형 2" d="M25,0l6.25,18.594L50,19.1l-14.887,12L40.451,50,25,38.82,9.549,50l5.338-18.906L0,19.1l18.75-.5Z" transform="translate(18.73) rotate(22)" fill="#fff" opacity="0.9"/>
+            </svg>
+
+            <a class="close"></a>
+            <ul>
+                <li><a>COFFEE</a></li>
+                <li><a>MENU</a></li>
+                <li><a>STORE</a></li>
+                
+                <li class="quarter"><a>RESPONSIBILITY</a></li>
+                <li><a>STARBUCKS REWORDS</a></li>
+                <li><a>WHAT'S NEW</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="quick-menu">
+        <ul>
+            <a>
+                <li><i class="fas fa-location-arrow"></i></li>
+            </a>
+            <a>
+                <li><i class="fas fa-location-arrow"></i></li>
+            </a>
+            <a>
+                <li><i class="fas fa-bookmark"></i></li>
+            </a>
+            <a>
+                <li><i class="fas fa-chevron-up"></i></li>
+            </a>
+        </ul>
+    </div>
+
+    <div id="header-wrapper">
+        <div class="row">
+            <div class="imx">
+
+                <div class="clear">
+                    <div class="fl">
+                        <a class="nav-menu"><i class="fas fa-bars"></i></a>
+                    </div>
+                    <div ani_type="bounce" class="center logo">
+
+                    </div>
+                    <div class="fr">
+                        <a class="nav-menu"><i class="fas fa-search"></i></a>
+                        <a class="nav-menu"><i class="fas fa-user"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="all-wrapper" id="main-wrapper">
+
+        <div class="intro-box">
+            <img class="active-img" src="img/item-img01.png">
+            <div class="row">
+
+                <div class="clear">
+                    <div class="fl w50">
+                        <div class="text-box">
+                            <h2>starbucks</h2>
+                            <h3>summer fastiver</h3>
+                            <p>
+                                스타벅스에서 준비한 다양한<br> 여름 페스티벌에 참여 해보세요.
+                            </p>
+                            <a class="btn"><span>자세히 보기</span></a>
+                        </div>
+                    </div>
+
+                    <div class="fr w50">
+
+                        <div class="one-ob image-box">
+                            <a><img src="img/product1.png" alt="" class="img-active"></a>
+                            <div class="text-box">
+                                <h5>dolce caramel chips <br> coffee frappucino</h5>
+                                <span>돌체 카라멜 칩 커피 프라푸치노</span>
+                            </div>
+                        </div>
+
+                        <div class="two-ob image-box">
+                            <a class="img-active"><img src="img/intro-img.png" alt=""></a>
+                            <div class="text-box">
+                                <h5>pineapple sunset <br> iced tea</h5>
+                                <span>딸기 레몬 블랜디드</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- -------------- intro-box and  ----------- -->
+
+        <div class="banner-wrapper">
+            <div class="row">
+                <div class="imx">
+
+                    <div class="clear">
+
+                        <div class="fl reword-logo">
+                            <img src="img/logo-7.png" alt="starbucks-reword" style="width:200px; height:200px;">
+                        </div>
+                        <div class="reword-center">
+                            <h3>스타벅스만의 특별한 혜택, 스타벅스 리워드</h3>    
+                            <p>
+                                스타벅스 회원이세요? <br>
+                                로그인을 통해 나만의 리워드를 확인해보세요.
+                            </p>
+                            <a class="banner-btn">로그인</a>
+                            <a class="banner-btn">회원가입</a>
+                        </div>
+                        <div class="reword-active">
+                            <img src="img/banner-img.png" alt="" class="back" style="width=200px; height:200px;">
+                            <img src="img/banner-active1.png" alt=""class="active-one" style="width:100px; height:100px;">
+                            <img src="img/banner-active1.png" alt=""class="active-two" style="width:150px; height:150px;">
+                        </div>
+                        
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="special-content content">
+            <div class="row">
+
+                <div class="imx special-menu">
+                    <div class="clear">
+
+                        <div class="fl">
+                            <h4>STARBUCKS! : Special</h4>
+                        </div>
+                        <div class="fr">
+                            <a>청담스타 R점</a>
+                            <span>l</span>
+                            <a>타바타 바 매장</a>
+                            <span>l</span>
+                            <a>파미에파크점</a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="special-title">
+                    <img src="img/store1.png" alt="special-title">
+                </div>
+                
+                <div class="imx-harf special-item">
+
+                    <div class="clear">
+
+                        <div class="fl w30">
+                            <div class="imx-harf">
+                                <img src="img/store2.png" alt="">
+                                <a>전용 MD 더 보기</a>
+                            </div>
+                        </div>
+
+                        <div class="fr w60">
+                            <div class="img-box fl w33">
+                                <div class="imx-harf">
+                                    <div class="bg-box">
+                                        <span>SAMPLE</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="img-box fl w33">
+                                <div class="imx-harf">
+                                    <div class="bg-box">
+                                        <span>SAMPLE</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="img-box fl w33">
+                                <div class="imx-harf">
+                                    <div class="bg-box">
+                                        <span>SAMPLE</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                
+            </div>
+        </div>
+
+        <div class="event-box">
+            <div class="row">
+                
+                <div class="event-title">STARBUCKS Event!</div>
+                <div class="event-img">
+                    <div class="top-bg"></div>
+                    <img src="img/untitle.jpg" alt="untitle">
+                </div>
+
+                <div class="event-text">
+                    <div class="text">
+                        <h3>STARBUCKS BARISTAR Pick</h3>
+                        <p>
+                            스타벅스의 바리스타들이 직정 선정한<br>
+                            음료들은 한번에 만나보세요!
+                        </p>
+                        <a>View More</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+    <!-- //main-wrapper -->
+
+
+</body>
+
+</html>

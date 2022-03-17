@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Swiper demo</title>
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="../package/css/swiper.css">
+
+  <!-- Demo styles -->
+  <style>
+  *{
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+  }
+    html, body, main {
+      position: relative;
+      height: 100%;
+    }
+    body {
+      background: #eee;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color:#000;
+      margin: 0;
+      padding: 0;
+    }
+    .swiper-container {
+      width: 100%;
+      height: auto%;
+	  border:3px solid red;
+    }
+    .swiper-slide {
+	 border:3px solid green;
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+
+      /* Center slide text vertically */
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;/*수직정렬*/
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;/*수직정렬*/
+    }
+	.swiper-slide img{width:100%;/*이미지들이 한단계 상위 부모와 같은 넓이로 취함, 넓이를 적용하면 높이도 자동으로 비율이 맞쳐짐*/
+	}
+  </style>
+</head>
+<body>
+  <!-- Swiper -->
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+		<img src="./images/bg01.jpg" alt="배경그림" />
+		<img src="./images/bg01.jpg" alt="배경그림" />
+		<img src="./images/bg01.jpg" alt="배경그림" />
+		<img src="./images/bg01.jpg" alt="배경그림" />
+	  </div>
+
+    </div><!--//swiper-wrapper-->
+  </div><!--//swiper-container-->
+
+  <!-- Swiper JS -->
+  <script src="../package/js/swiper.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper('.swiper-container');
+  </script>
+</body>
+</html>

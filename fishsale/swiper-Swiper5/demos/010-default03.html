@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Swiper demo</title>
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="../package/css/swiper.css">
+
+  <!-- Demo styles -->
+  <style>
+  *{
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+  }
+    html, body, main {
+      position: relative;
+      height: 100%;
+    }
+    body {
+      background: #eee;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color:#000;
+      margin: 0;
+      padding: 0;
+    }
+    .swiper-container {
+      width: 100%;
+      height: 100%;
+	  border:0px solid red;
+    }
+    .swiper-slide {
+	 border:0px solid green;
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+
+      /* Center slide text vertically */
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;/*수직정렬*/
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;/*수직정렬*/
+    }
+	.swiper-container .swiper-slide.bg01{background:lightblue;}
+	.swiper-container .swiper-slide.bg02{background:red;}
+	.swiper-container .swiper-slide.bg03{background:lightgreen;}
+	.swiper-container .swiper-slide.bg04{background:lightpink;}
+	.swiper-container .swiper-slide.bg05{background:blue;}
+	.swiper-container .swiper-slide.bg06{background:black;}
+	
+	
+
+
+
+
+
+	
+  </style>
+</head>
+<body>
+  <!-- Swiper -->
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide bg01"></div>
+	  <div class="swiper-slide bg02"></div>
+	  <div class="swiper-slide bg03"></div>
+	  <div class="swiper-slide bg04"></div>
+	  <div class="swiper-slide bg05"></div>
+	  <div class="swiper-slide bg06"></div>
+    </div><!--//swiper-wrapper-->
+	<!-- Add Arrows -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+	<div class="swiper-pagination"></div>
+  </div><!--//swiper-container-->
+
+  <!-- Swiper JS -->
+  <script src="../package/js/swiper.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+   var swiper = new Swiper('.swiper-container', {
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+	  pagination: {
+        el: '.swiper-pagination',
+		//type: 'progressbar'
+      },
+	  autoplay: {
+        delay: 1000,
+        disableOnInteraction: false,
+      },
+	  speed:3000,
+	  effect:"fade",
+    });
+  </script>
+</body>
+</html>

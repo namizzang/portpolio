@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>parris baguett</title>
+
+        <link rel="stylesheet" href="css/default.css">
+        <link rel="stylesheet" href="css/owl.carousel.min.css">
+        <link rel="stylesheet" href="css/owl.theme.default.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+        <!-- <link rel="stylesheet" href="slick/slick-theme.css">
+        <link rel="stylesheet" href="slick/slick.css"> -->
+        
+
+
+        <!-- font -->
+        <!-- 'Didact Gothic', sans-serif -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap" rel="stylesheet">
+        <!-- bakcground #023586 -->
+        
+        
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+        <script src="https://kit.fontawesome.com/9ed5c8ba64.js" crossorigin="anonymous"></script>
+        <script src="js/owl.carousel.js"></script>
+        <style>
+            /* pop */
+            .pop{position:fixed; top: 200px; right:0; width:300px; height:80px; z-index:8888; transition:.3s ease all;}
+            .pop .pop-close {width:20px; height:20px; position:absolute; top:0; right:0; z-index:1; display: flex; justify-content: center; align-items: center;}
+            .pop .pop-close span{width:12px; height:1px; display: block; background:#040404; z-index:2;position:absolute; }
+            .pop .pop-close .line-one{transform:rotate(45deg);}
+            .pop .pop-close .line-two{transform:rotate(-45deg);}
+            .pop .one-pop img{width:100%; height:100%;}
+            .pop .two-pop{display: none;}
+            
+            /* nav-hidden */
+            .nav-hidden{width:320px; height:100vh; position:fixed; top:0; right:-320px; background:#fefefe; z-index:9999; transition:.5s ease all;}
+            .nav-hidden .nav-header{width:100%; height:80px; border-bottom:1px solid #ebebeb; }
+            .nav-hidden .nav-header span{width:20px; height:2px; background:#000; display: block; position:absolute; top:38px; right:20px; cursor: pointer; }
+            .nav-hidden .nav-header .btn-close-one{transform:rotate(45deg);}
+            .nav-hidden .nav-header .btn-close-two{transform:rotate(-45deg);}
+            .nav-hidden .nav-block{border-bottom:1px solid #ebebeb; display: block;} 
+            .nav-hidden .nav-block a{display: block; margin:20px 0; font-size:1.2em; font-weight:600;}
+            .nav-hidden .nav-sns h4{margin:20px 0; font-size:1.2em; letter-spacing: 1px;}
+            .nav-hidden .nav-sns i{display: inline-block; font-size:1.5em; margin-right:10px;}
+
+            /* header */
+            #header-wrapper{background:#023586; width:100%; height:100px; box-shadow:0 2px 6px rgba(0,0,0,0.8); position:fixed; top:0; left:0; transition:.3s ease all; z-index:9;}
+            #header-wrapper h1{position:absolute; top:36px; left:0; width:113px; height:40px; font-size:1.5em; font-weight:600; color:#fff; letter-spacing: 1px; z-index:9999; white-space: nowrap; transition:.3s;}
+            #header-wrapper h1 a{display: block; width:100%; height:100%; font-family: 'Didact Gothic', sans-serif;}
+            #header-wrapper .nav{height:100%; text-align: center; color:#fff;}
+            #header-wrapper .nav .gnb li{display: inline-block;}
+            #header-wrapper .nav .gnb li a{display: flex; height:100px; align-items: center; padding:0 20px; font-size:1.2em; font-weight:600; font-family: 'Didact Gothic', sans-serif; letter-spacing: 0; white-space: nowrap; transition:.3s;}
+            
+            /* scroll */ 
+            #header-wrapper.sticky{height:80px; background:rgba(0,0,0,0.5);}
+            #header-wrapper.sticky h1{top:28px; font-size:1.3em;}
+            #header-wrapper.sticky .nav .gnb li a{ height:80px; padding:0 10px; }
+            
+
+            #header-wrapper .util-area{height:100%; position:absolute; top:0; right:0; color:#fff;}
+            #header-wrapper .util-area .lang-area{display: inline-block; top:50%; transform:translateY(-50%); margin-right:14px; }
+            #header-wrapper .util-area .lang-area .btn-lang{color:#fff; font-size:1.1em; font-weight:600;}
+            #header-wrapper .util-area .lang-area i{padding-left:5px;}
+            #header-wrapper .util-area>button{display: inline-block; top:50%; transform:translateY(-50%); color:#fff; font-size:1.1em; font-weight:600;}
+            #header-wrapper .util-area .btn-search{margin-right:14px;}
+            /* 보수 확인 >> 강제 위치 변경  */
+            #header-wrapper .util-area .btn-menu{width:15px; height:15px; border:2px solid #fff; border-right:none; border-left:none; box-sizing: border-box; transform: translateY(-90%);}
+            #header-wrapper .util-area .btn-menu::after{content:'';width:11px; height:2px; background:#fff; position:absolute; right:0; top:50%; transform:translateY(-50%); transition:.3s ease all;}
+            #header-wrapper .util-area .btn-menu:hover::after{width:15px; transition:.3s ease all ;}
+            /* //header-wrapper */
+            
+
+            
+            /* footer */
+            #footer{height:250px; background:#023586; color:#fff; font-family: 'Didact Gothic', sans-serif;}
+            #footer .fl h4{font-size:1.5em; font-weight:600; padding:24px 0; letter-spacing:1px;}
+            #footer .fl ul li{margin-bottom:14px; font-size:1.1em;}
+            #footer .fl .spc-logo{display: block; padding:24px 0}
+            #footer .fl .footer-logo{display: inline-block; width:20%; margin:0 4px; margin-top:20px; }
+            #footer .fl .sns{display: flex; align-items: center; margin-bottom:20px;}
+            #footer .fl .sns i{font-size:2em; margin-right:20px;}
+            #footer .fl .brand-site .label{width:200px; height:40px; border:1px solid #fff; border-radius:3px; text-align: center; transition:.3s ease all;}
+            #footer .fl .brand-site .label a{font-weight:600; margin-right:8px; line-height:40px;}
+            #footer .fl .brand-site ul{background:#888; position:absolute; bottom:100%; left:0; width:200px; margin-bottom:2px; border-radius:8px; padding:0 20px; display: block; padding-top:20px;}
+            #footer .fl .brand-site ul li{font-size:.9em; font-weight:600;}
+            /* footer */
+            
+            /* main-wrapper */
+            #main-wrapper{margin-top:100px; }
+            #main-wrapper .banner .clear{max-width:100%; overflow:hidden;}
+            #main-wrapper .banner .clear .fl{box-sizing: border-box; cursor:pointer; ;}
+            #main-wrapper .banner .clear .fl::after{content:''; background:rgba(0,0,0,0.3); width:100%; height:100%; position:absolute; top:0; left:0; display:block; transition:1s ease all;}
+            #main-wrapper .banner .clear .fl:hover::after{opacity:0; }
+            
+            #main-wrapper .title{margin:50px 0;}
+            #main-wrapper .title h2{font-size:1.6em; font-weight:800; letter-spacing: .5px;}
+            #main-wrapper .title a{font-size:.9em; font-weight:600; position:absolute; bottom:0; right:0; margin-bottom:4px;}
+            #main-wrapper .title a::after{content:''; width:0%; height:1px; background:#000; position:absolute; bottom: -4px; left:50%; transform:translateX(-50%); transition:.3s ease all;}
+            #main-wrapper .title a:hover::after{width:100%;}
+
+            #main-wrapper .first-content .fl .sub-title{position:absolute; left:0; bottom:0px; z-index:9999; color:#f2f2f2; padding:25px 20px;}
+            #main-wrapper .first-content .fl .sub-title h3{margin-bottom:10px; font-size:1.8em; font-weight:600;}
+            #main-wrapper .first-content .fl .sub-title span{font-size:.9em; letter-spacing: 1px;}
+            #main-wrapper .first-content .fl img::after{ content:'';  width:100%; height:50%; background:red; position:absolute; left:0; bottom:0; display: block; }
+
+            /* background-image: linear-gradient(to bottom,rgba(0,0,0,0),rgba(0,0,0,.5)); */
+
+            #main-wrapper .second-content .item-box{margin-bottom:50px;}
+            #main-wrapper .second-content .item-box .text-box{padding:50px;}
+            #main-wrapper .second-content .item-box .text-box span{color:#023586; margin-bottom:10px; display: block; font-weight:600; }
+            #main-wrapper .second-content .item-box .text-box h4{font-size:1.3em; font-weight:600; margin-bottom:10px;}
+            #main-wrapper .second-content .item-box .text-box .date{margin-top:60px;}
+            
+            #main-wrapper .third-content .clear{height:100%;}
+            #main-wrapper .third-content .fl{cursor:pointer;}
+            #main-wrapper .third-content .third-text h3{margin:8px 0; font-size:1.3em; font-weight:600;}
+            #main-wrapper .third-content .third-text p{padding:30px 0; transition:.3s all; color:#000; display: block; cursor:pointer;}
+            #main-wrapper .third-content .third-text p:hover{color: rgba(255, 255, 255, 0);}
+            
+            #main-wrapper .four-content{max-height:600px; overflow:scroll;}
+            #main-wrapper .four-content .columns{column-width:300px;}
+            #main-wrapper .four-content .columns figure{display: inline-block;padding:10px; margin-bottom:10px; box-shadow:2px 0px 8px rgba(0,0,0,.3);}
+            #main-wrapper .four-content .columns figure img{width:100%; height:auto;}
+            #main-wrapper .four-content .columns figure.first-img{ margin-top:20px;}
+            #main-wrapper .four-content .columns figure.second-img{ margin-top:40px;}
+            
+            #main-wrapper .insta{height:80px; margin: 80px 0 ;}
+            #main-wrapper .insta-text{position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); }
+            #main-wrapper .insta-text p{text-align: center; margin-top:8px;}
+            
+            
+            @media screen and (max-width:1000px){
+                #header-wrapper .nav .gnb{display: none;}
+                
+                #header-wrapper .util-area{transform:translateY(50px);}
+
+                #main-wrapper .banner{height:625px; overflow:hidden; }
+                #main-wrapper .banner .clear .fl{width:50%; }
+                #main-wrapper .banner .clear .fl img{width:100%; height:100%; }
+                #main-wrapper .banner .clear .fl.three-img{position:absolute; top:0; right:-50%; transition:.3s ease all;}
+
+                #main-wrapper .first-content .fl .sub-title{position:absolute; left:0; bottom:0px; z-index:9999; color:#f2f2f2; padding:25px 20px; font-family:'Didact Gothic', sans-serif;}
+                #main-wrapper .first-content .fl .sub-title h3{margin-bottom:10px; font-size:1.8em; font-weight:600;}
+                #main-wrapper .first-content .fl .sub-title span{font-size:1em; letter-spacing: 1px; }
+                #main-wrapper .first-content .fl img::after{ content:'';  width:100%; height:50%; background:red; position:absolute; left:0; bottom:0; display: block; }
+
+                #main-wrapper .second-content .item-box{margin-bottom:10px;}
+                #main-wrapper .second-content .item-box .text-box{padding:10px;}
+                #main-wrapper .second-content .item-box .text-box .date{margin-top:8px;}
+        }
+
+        </style>
+        <script>
+
+                    
+
+        </script>
+        <script>
+
+            $(document).ready(function(){
+                var $header = $('#header-wrapper');
+                // header scroll 효과
+                $(window).scroll(function(){
+                    if($(this).scrollTop() > 100){
+                        $header.addClass('sticky');
+                    }else{
+                        $header.removeClass('sticky');
+                    }
+                });
+                
+                // pop-up창 끄기
+                $('.pop').click(function(){
+                    $(this).css({"display":"none"});
+                });
+            
+                // bamberger-menu 열 닫 
+                    $(".btn-menu").on("click" , function(){
+                        $(".nav-hidden").fadeIn();
+                        $(".nav-hidden").css({"right" : "0px"});
+                    });
+                    
+                    $(".nav-header span").on("click" , function(){
+                        $(".nav-hidden").fadeOut();
+                        $(".nav-hidden").css({"right" : "-400px"});
+                    });
+
+                // promotion 애니매이션
+                $('.respensive').slick({
+                    infinite: true,
+                    slidesToShow: 4,
+                    slidesToScroll: 1,
+                    autoplay: true,
+                    arrows: false,
+                });
+
+                // footer 열 닫
+                $('.brand-site .label-active').slideUp(0);
+
+                jQuery(function($){
+                    $('.brand-site .label').removeAttr('a');
+                    $('.brand-site .label').on('click', function(e){
+                        e.preventDefault();
+                        $('.brand-site .label-active').slideToggle(400);
+
+                    });
+                });
+                
+                
+            });
+            </script>
+    
+    </head>
+    <body>
+    <div id="header-wrapper">
+        <div class="row">
+            <div class="imx">
+                <h1><a class="logo" href="/">PARIS BAGUETTE</a></h1>
+                
+                <div class="nav">
+
+                    <div class="gnb">
+                        <ul>
+                            <li><a class="menu">PB Megazine</a></li>
+                            <li><a class="menu">PB Story</a></li>
+                            <li><a class="menu">PRODUCT</a></li>
+                            <li><a class="menu">STORE</a></li>
+                            <li><a class="menu">DELIVERY</a></li>
+                            <li><a class="menu">PROMOTION</a></li>
+                        </ul>
+                    </div>
+                    
+                </div>
+
+                <div class="util-area">
+                    <div class="lang-area">
+                        <button class="btn-lang" alt="현재 국문 선택됨 클릭 시 전환" type="button">
+                            KOR
+                            <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                        </button>
+                        
+                    </div>
+                    <button class="btn-search" alt="검색"><i class="fa fa-search" aria-hidden="true"></i></button>
+                    <button class="btn-menu" alt="전체 메뉴"></button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- nav -->
+
+    <div class="nav-hidden">
+        <div class="imx">
+
+            <div class="nav-header">
+                <span class="btn-close-one"></span>
+                <span class="btn-close-two"></span>
+            </div>
+            <div class="nav-block">
+                <a>PB MAGAZINE</a>
+                <a>PB STORY</a>
+                <a>PRODUCTS</a>
+            </div>
+            <div class="nav-block">
+                <a>STORE</a>
+                <a>DELIVERY</a>
+                <a>PROMOTION</a>
+            </div>
+            <div class="nav-sns">
+                <h4>Follw Us</h4>
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- //nav -->
+    
+    <!-- pop-up -->
+    <div class="pop">
+        <div class="one-pop pop-up">
+            <div class="pop-close">
+                <span class="line-one"></span>
+                <span class="line-two"></span>
+            </div>
+            <img src="https://www.paris.co.kr/wp-content/uploads/KakaoTalk_20211123_102013793_01.jpg" alt="pop-up-one">
+        </div>
+        <div class="two-pop pop-up">
+            <div class="pop-close">
+                <span></span>
+                <span></span>
+            </div>
+            <img src="https://www.paris.co.kr/wp-content/uploads/WEB-%ED%91%B9%EC%89%AC%EB%9D%BC%EC%BF%A0%EC%85%98_%ED%98%84%EC%9E%A5%ED%8C%90%EB%A7%A4_%ED%8C%9D%EC%97%85%EB%B0%B0%EB%84%88.jpg" alt="pop-up-one">
+        </div>
+    </div>
+
+
+    <div id="main-wrapper">
+
+        <div class="banner">
+            <div class="clear banner-slide">
+                <div class="fl w33 first-img">
+                    <img src="img/DM_20210502033049_005.JPEG" alt="">
+                </div>
+                <div class="fl w33 second-img">
+                    <img src="img/DM_20210502033049_006.JPEG" alt="">
+                </div>
+                <div class="fl w33 three-img">
+                    <img src="img/DM_20210502033049_007.JPEG" alt="">
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+
+            <div class="first-content">
+                <div class="imx">
+
+                    <div class="clear title">
+                        <h2 class="fl">PB MAGAZIN</h2>
+                        <a class="fr">MORE</a>
+                    </div>
+
+                    <div class="imx-harf">
+                        <div class="clear">
+
+                            <div class="fl w33">
+                                <div class="imx-harf">
+                                    <div class="sub-title">
+                                        <h3>풍기 인삼</h3>
+                                        <span>풍기 인삼과 함께 하는 우리 모두가 행복한 상생 프로젝트</span>
+                                    </div>
+                                    <img src="img/DM_20210502033049_008.JPEG" alt="">
+                                </div>
+                            </div>
+
+                            <div class="fl w33">
+                                <div class="imx-harf">
+                                    <div class="sub-title">
+                                        <h3>풍기 인삼</h3>
+                                        <span>풍기 인삼과 함께 하는 우리 모두가 행복한 상생 프로젝트</span>
+                                    </div>
+                                    <img src="img/DM_20210502033049_009.JPEG" alt="">
+                                </div>
+                            </div>
+                            
+                            <div class="fl w33">
+                                <div class="imx-harf">
+                                    <div class="sub-title">
+                                        <h3>풍기 인삼</h3>
+                                        <span>풍기 인삼과 함께 하는 우리 모두가 행복한 상생 프로젝트</span>
+                                    </div>
+                                    <img src="img/DM_20210502033049_010.JPEG" alt="">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- first-content -->
+
+            <div class="second-content">
+
+                <div class="imx">
+
+                    <div class="clear title">
+                        <h2 class="fl">PB STORY</h2>
+                        <a class="fr">MORE</a>
+                    </div>
+                    
+                    <div class="clear item-box">
+                        <div class="fl w50">
+                            <div class="claer">
+                                <div class="fl w50">
+                                    <img src="img/DM_20210502033049_011.JPEG" alt="">
+                                </div>
+                                <div class="fr w50 text-box">
+                                    <span>Bread video</span>
+                                    <h4>마남과 함께하는 오싹달콤 2021 파바 할로윈! 파리바게뜨 X 요리용디 9번째 만남!</h4>
+                                    <p class="text">파바의 마녀..아니 마남 용디가 소개하는 2021 파바 할로윈!👻💙 무섭지만 귀여워..</p>
+                                    <div class="date">2021.11.10</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fr w50">
+                            <div class="claer">
+                                <div class="fl w50">
+                                    <img src="img/DM_20210502033049_012.JPEG" alt="">
+                                </div>
+                                <div class="fr w50 text-box">
+                                    <span>Bread video</span>
+                                    <h4>마남과 함께하는 오싹달콤 2021 파바 할로윈! 파리바게뜨 X 요리용디 9번째 만남!</h4>
+                                    <p class="text">파바의 마녀..아니 마남 용디가 소개하는 2021 파바 할로윈!👻💙 무섭지만 귀여워..</p>
+                                    <div class="date">2021.11.10</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="clear item-box">
+                        <div class="fl w50">
+                            <div class="claer">
+                                <div class="fl w50">
+                                    <img src="img/DM_20210502033049_013.JPEG" alt="">
+                                </div>
+                                <div class="fr w50 text-box">
+                                    <span>Bread video</span>
+                                    <h4>마남과 함께하는 오싹달콤 2021 파바 할로윈! 파리바게뜨 X 요리용디 9번째 만남!</h4>
+                                    <p class="text">파바의 마녀..아니 마남 용디가 소개하는 2021 파바 할로윈!👻💙 무섭지만 귀여워..</p>
+                                    <div class="date">2021.11.10</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fr w50">
+                            <div class="claer">
+                                <div class="fl w50">
+                                    <img src="img/DM_20210502033049_014.JPEG" alt="">
+                                </div>
+                                <div class="fr w50 text-box">
+                                    <span>Bread video</span>
+                                    <h4>마남과 함께하는 오싹달콤 2021 파바 할로윈! 파리바게뜨 X 요리용디 9번째 만남!</h4>
+                                    <p class="text">파바의 마녀..아니 마남 용디가 소개하는 2021 파바 할로윈!👻💙 무섭지만 귀여워..</p>
+                                    <div class="date">2021.11.10</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- second-content -->
+
+            <div class="clear title">
+                <h2 class="fl">PB PROMOTION</h2>
+                <a class="fr" >SHOW MORE</a>
+            </div>
+            <div class="third-content">
+                <div class="imx">
+
+                    <div class="clear respensive">
+                        
+                        <div class="fl w25">
+                            <div class="imx-harf">
+                                <img src="img/DM_20210502033049_015.JPEG" alt="">
+                                <div class="third-text">
+                                    <h3>파리바게트 X 카카오 쇼핑라이브</h3>
+                                    <p>Read More</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fl w25">
+                            <div class="imx-harf">
+                                <img src="img/DM_20210502033049_016.JPEG" alt="">
+                                <div class="third-text">
+                                    <h3>파리바게트 X 카카오 쇼핑라이브</h3>
+                                    <p>Read More</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fl w25">
+                            <div class="imx-harf">
+                                <img src="img/DM_20210502033049_017.JPEG" alt="">
+                                <div class="third-text">
+                                    <h3>파리바게트 X 카카오 쇼핑라이브</h3>
+                                    <p>Read More</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                            <div class="fl w25">
+                                <div class="imx-harf">
+                                    <img src="img/DM_20210502033049_019.JPEG" alt="">
+                                    <div class="third-text">
+                                        <h3>파리바게트 X 카카오 쇼핑라이브</h3>
+                                        <p>Read More</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="fl w25">
+                                <div class="imx-harf">
+                                    <img src="img/DM_20210502033049_020.JPEG" alt="">
+                                    <div class="third-text">
+                                        <h3>파리바게트 X 카카오 쇼핑라이브</h3>
+                                        <p>Read More</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="fl w25">
+                                <div class="imx-harf">
+                                    <img src="img/DM_20210502033049_021.JPEG" alt="">
+                                    <div class="third-text">
+                                        <h3>파리바게트 X 카카오 쇼핑라이브</h3>
+                                        <p>Read More</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="fl w25">
+                                <div class="imx-harf">
+                                    <img src="img/DM_20210502033049_022.PNG" alt="">
+                                    <div class="third-text">
+                                        <h3>파리바게트 X 카카오 쇼핑라이브</h3>
+                                        <p>Read More</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="fl w25">
+                                <div class="imx-harf">
+                                    <img src="img/DM_20210502033049_018.JPEG" alt="">
+                                    <div class="third-text">
+                                        <h3>파리바게트 X 카카오 쇼핑라이브</h3>
+                                        <p>Read More</p>
+                                    </div>
+                                </div>
+                            </div>
+                        
+
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- third-content -->
+
+            <div class="imx">
+                <div class="clear title">
+                    <h2 class="fl">PB PRODUCT</h2>
+                    <a class="fr">SHOW MORE</a>
+                </div>    
+            </div>
+
+            <div class="four-content">
+                <div class="imx">
+
+                    <div class="columns">
+                        <figure>
+                            <img src="img/82405_81860_144.png" alt="">
+                        </figure>
+                        <figure >
+                            <img src="img/DM_20210502033049_044.JPEG" alt="">
+                        </figure>
+                        <figure class="first-img">
+                            <img src="img/63152_34894_235.jpeg" alt="">
+                        </figure>
+                        <figure>
+                            <img src="img/69863_44638_842.jpeg" alt="">
+                        </figure>
+                        <figure class="second-img">
+                            <img src="img/DM_20210502033049_051.JPEG" alt="">
+                        </figure>
+                        <figure>
+                            <img src="img/B20210721115937840.jpeg" alt="">
+                        </figure>
+                        <figure>
+                            <img src="img/DM_20210502033049_046.JPEG" alt="">
+                        </figure>
+                        <figure>
+                            <img src="img/DM_20210502033049_049.JPEG" alt="">
+                        </figure>
+                    </div>
+
+                </div>
+            </div>
+            
+            <div class="insta">
+                <div class="insta-text">
+                    <h2>@h4u_n222</h2>
+                    <p>Instagram</p>
+                </div>
+            </div>
+
+            <div class="five-content">
+                <div class="imx">
+                    <div class="clear">
+                        <div class="fl"></div>
+                        
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <!-- container -->
+    </div>
+
+    <div id="footer">
+        <div class="container">
+
+            <div class="imx">
+                
+                <div class="clear">
+
+                    <div class="fl w25">
+                        <h4>Info</h4>
+                        <ul class="info-list">
+                            <li><a>브렌드 소개</a></li>
+                            <li><a>창업안내</a></li>
+                            <li><a>거래희망사전등록</a></li>
+                            <li><a>채용</a></li>
+                        </ul>
+                    </div>
+                    <div class="fl w25">
+                        <h4>Contant Us</h4>
+                        <ul>
+                            <li><a>고객센터</a></li>
+                            <li><a>080-731-2027</a></li>
+                            <li><a>평일 09:00 - 17:00 (점심 12:00 - 13:00)</a></li>
+                            <li><a>고객칭찬</a></li>
+                        </ul>
+                    </div>
+                    <div class="fl w25">
+                        <div class="logo">
+                            <a class="spc-logo"><img src="img/DM_20210502033049_060.PNG" alt=""></a>
+                            <a class="footer-logo"><img src="img/DM_20210502033049_062.PNG" alt=""></a>
+                            <a class="footer-logo"><img src="img/DM_20210502033049_063.PNG" alt=""></a>
+                            <a class="footer-logo"><img src="img/DM_20210502033049_064.PNG" alt=""></a>
+                            <a class="footer-logo"><img src="img/DM_20210502033049_065.PNG" alt=""></a>
+                        </div>
+                    </div>
+                    
+                        <div class="fl w25">
+                            <div class="contect">
+                                <h4>Follow Us</h4>
+                                <div class="sns">
+                                    <a href="https://www.instagram.com/h4un_222/" target="blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                                </div>
+                                <div class="brand-site">
+                                    <div class="label"><a>Brand Sites</a> <i class="fa fa-chevron-down" aria-hidden="true"></i></div>
+
+                                    <ul class="label-active">
+                                        <li><a>파리크라상</a></li>
+                                        <li><a>파스쿠찌</a></li>
+                                        <li><a>배스킨라빈스</a></li>
+                                        <li><a>던킨도너츠</a></li>
+                                        <li><a>기타</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+    <!-- <script>
+        $(window).scroll(function(){
+            var now=$(document).scrollTop();
+            console.log(now);
+        });
+        
+    </script> -->
+    <!-- slick -->
+    
+</body>
+</html>

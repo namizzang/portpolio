@@ -1,0 +1,4 @@
+@charset "utf-8";
+#header-wrapper{background:#fff; height:80px; }
+#header-wrapper .fl .logo{padding:5px 0;}
+#header-wrapper .fl a.logo-title{display: inline-block; font-size:1.5em; color:red; font-weight:700; margin-bottom:20px;}

@@ -1,0 +1,10 @@
+@charset "utf-8";
+*{margin:0; padding:0;}
+li{list-style-type:none;}
+body{font-size:14px;}
+a:link, a:visited{text-decoration:none; color:#000;}
+a:focus{color:#DD0A04;}
+em,i{font-style:normal;}
+.inner{width:1280px; height:100%; margin:0 auto;}
+.clear{content:''; display:block; clear:both;}
+img{border:0;}

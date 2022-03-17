@@ -1,0 +1,37 @@
+@charset "utf-8";
+
+/* layout */
+.container{max-width:1440px; overflow:hidden; margin:0 auto;}
+.content-box{margin-bottom:160px;}
+.content-title{margin-bottom:20px; text-transform:uppercase;}
+.content-title .fl{font-size:1.7em; font-weight:700}
+.content-title .fr a{border-bottom:1px solid #000; padding-bottom:2px; display:inline-block; font-size:1.3em;font-weight:700;}
+
+body{font-size:14px;}
+
+/* header */
+#header-wrapper{background:#023586; width:100%; height:90px;}
+#header-wrapper::after{content:''; background:linear-gradient(to top, rgba(0,0,0,0),rgba(0,0,0,0.2)); position:absolute; bottom:0; left:0; width:100%; height:5px;}
+#header-wrapper .header .clear{line-height:90px; color:#fff; font-size:1.2em; text-transform:uppercase;}
+#header-wrapper .header .clear .fl a{margin-right:14px;}
+#header-wrapper .header .clear .logo{position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:1.5em; font-weight:700;}
+#header-wrapper .header .clear .fr a{margin-left:14px;}
+#header-wrapper .header .clear a::after{content:''; width:0%; height:2px; position:absolute; bottom:-30px; left:0; background:#fff; transition:.3s ease all;}
+#header-wrapper .header .clear a:hover::after{width:100%;}
+
+#main-wrapper .banner .fl{cursor:pointer;}
+#main-wrapper .banner .fl .bg{position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); transition:.3s ease all; z-index:5; display:block;}
+#main-wrapper .banner .fl:hover .bg{opacity: 0;}
+
+#main-wrapper .magazine .imx-harf .fl .text-box{position:absolute; bottom:0; left:0; padding:20px; z-index:3; word-break:keep-all;}
+#main-wrapper .magazine .imx-harf .fl .text-box h2{font-size:2em; font-weight:700; margin-bottom:10px; color:#fff;}
+#main-wrapper .magazine .imx-harf .fl .text-box p{font-size:1.3em; color:#fff;}
+#main-wrapper .magazine .imx-harf .fl::after{content:''; position:absolute; left:0; bottom:0; width:100%; height:30%; background:linear-gradient(to bottom, rgba(0,0,0,0),rgba(0,0,0,0.3)); transition:.3s ease all; z-index:3; cursor:pointer;}
+#main-wrapper .magazine .imx-harf .fl:hover::after{height:100%;}
+
+#main-wrapper .story-section .item-box {margin-bottom:30px;}
+#main-wrapper .story-section .item-box .item .fl{padding-right:10px;}
+#main-wrapper .story-section .item-box .item .fr .text{margin-bottom:15px; display:block; text-transform:uppercase; word-break:keep-all;}
+#main-wrapper .story-section .item-box .item .fr span{color:blue; font-size:1em; }
+#main-wrapper .story-section .item-box .item .fr h2{font-size:2em; font-weight:700;}
+#main-wrapper .story-section .item-box .item .fr p{font-size:1.1em;}

@@ -1,0 +1,649 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+	<title> tagheuer </title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+   <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+   <style type="text/css">
+      body{font-size:14px;}
+   /* ############## wrap ############### */
+      
+      #wrap{min-width:1025px; width:100%; position:relative;}
+      
+   /* ############## (logo) ############### */
+      #tagheuerLogo{width:100%; padding:20px 0; position:fixed; margin-left:10px; z-index:9999;}
+      #tagheuerLogo h1{width:40px; height:40px;}
+      #tagheuerLogo h1 img{width:100%;}
+
+   /* ############## nav ############### */
+      #navWrap{width:100%; height:80px; background-color:#000; }
+      /* logo 들어올 위치 생각(현재 padding-left:105px로 떨어 뜨려 놓음) (수정필요) */
+      #navWrap ul{width:100%; height:100%; padding-left:105px; line-height:80px;}
+      #navWrap li{margin:0 10px; float:left; color:#fff;}
+      #navWrap li a{font-weight:600; color:#fff;}
+      #navWrap li i{font-style:normal;}
+
+      
+   /* ############## container ############### */
+      #container{width:100%;}
+
+   /* ############## visual ############### */
+      #visual{width:100%; height:700px; background-image: url('img/visual.gif'); background-size:100%; background-position:left; position:relative;}
+      #visual .bg_doc{width:50%; height:100%; font-size:28px; text-align:center; color:#fff; float:left; position:relative;}
+      #visual .bg_doc .vis_title{width:100%; position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);}
+      #visual .bg_doc .vis_title h2{font-size:12px;}
+      #visual .bg_doc .vis_title h3{font-size:30px; font-weight:600;}
+      #visual .pro_view{width:50%; height:100%; line-height:600px; font-size:28px; text-align:center; color:#fff; background-color:rgba(255,255,255,.3); float:left;}
+
+      /* product */
+
+      #product{width:50%; height:100%; background-color:rgba(0,0,0,.7);position:absolute; top:0; right:0; border-radius: 30px;}
+      #product:before{content:'<'; display:block; width:18px; height:52px; text-align:center; line-height:52px; color:#fff; position:absolute; top:50%; transform:translateY(-50%); left:-18px;background-color:#000;}
+      #product .product_inner{width:100%; height:100%; }
+      #product .product_inner:after{content:''; display:block; clear:both;}
+      #product .product_sel{width:45%; height:100%; float:left;}
+      
+
+      #product .product_sel .product_sellec{width:4.2rem; position:absolute; left:10px; bottom:20px;}
+      #product .product_sel .product_sellec li{width:100%; padding-bottom:10px;}
+      #product .product_sel .product_sellec a{display:block; width:100%; height:100%;}
+      #product .product_sel .product_sellec img{width:100%;}
+
+      #product .product_sel .img_area{width:100%; height:100%; position:relative;}
+      #product .product_sel .img_area p{width:18rem;  position:absolute; right:0; top:50%; transform:translateY(-50%);}
+      #product .img_area p img{width:100%;}
+
+      #product .product_desc{width:40%; height:100%; padding:60px 30px 0 40px; float:left; box-sizing:border-box; position:relative;}
+      #product .desc{padding:20px 0; color:#fff;}
+      #product .desc span{font-size:10px; color:#DD0A04;}
+      #product .desc h3{padding:10px 0;}
+      #product .desc p{padding-bottom:20px; font-size:12px; color:#ccc;}
+      #product .color_doc{height:40px; line-height:40px;}
+      #product .color_doc:after{content:''; display:block; clear:both;}
+      #product .color_doc span{display:block; width:10px; height:10px; border-radius:50%; margin-right:10px; background-color:#fff; position:relative;}
+      #product .color_doc span::before{content:''; width:0px; height:0px; border:1px solid #fff; position:absolute; left:50%; top:50%; border-radius:50%; transform:translate(-50%,-50%); z-index:-1; transition:.4s ease all;}
+      #product .color_doc span:hover::before{width:15px; height:15px; z-index:1;}
+      #product .color_doc span{float:left;}
+      #product .color_doc span.color1{background-color:#1D1D1D;}
+      #product .color_doc span.color2{background-color:#676DFF;}
+      #product .color_doc span.color3{background-color:#DD0A04;}
+
+      #product .more{width:100%;}
+      #product .more p{width:14.3rem; height:40px; line-height:40px; margin:0 auto; text-align:center; transition:.3s ease all;}
+      #product .more p a{display:block; width:100%; height:100%; color:#000; font-size:12px;}
+      #product .more .cart{background-color:#fff; margin-bottom:10px;}
+      #product .more .cart:hover{background-color:#000;}
+      #product .more .cart:hover a{color:#fff;}
+      #product .more .strap{border:2px solid #fff; line-height:36px; box-sizing:border-box;}
+      #product .more .strap:hover{border:2px solid #000;; background-color:#000;}
+      #product .more .strap a{color:#fff;}
+
+      #product .ader{position:absolute; left:0; bottom:30px;}
+      #product .ader span{display:block; width:4.8rem; height:80px; padding-right:14px; float:left;}
+      #product .ader span img{height:100%;}
+
+      
+   /* ############## pro_sel ############### */
+      #pro_sel{width:100%; height:650px;}
+      #pro_sel .btn_area{width:100%; height:70px;}
+      #pro_sel .sellec_btn{width:200px; height:100%; margin:0 auto; line-height:70px;}
+      #pro_sel .sellec_btn p{width:100px; text-align:center; float:left;}
+      #pro_sel .sellec_btn .sellec_btn1{margin:0;}
+      #pro_sel .sellec_btn a{font-size:16px } 
+      #pro_sel .sellec_btn a:hover{color:#DD0A04;}
+      #pro_sel .sellection{width:100%; overflow:hidden;}
+      #pro_sel ul{width:1110px; height:400px; margin:0 auto;}
+      /* .btn margin-top 이 안 들어가고 ul이 공중에 떠 있음 */
+      
+
+      #pro_sel li{width:350px; height:400px;  margin-right:20px; background-color:#fafafa; float:left;}
+
+      /* pro_sel / li 안에 있는 div a 공통 */
+      #pro_sel li div a{width:100%; height:100%; display:block; }
+
+      #pro_sel li .sel_img{width:100%; height:270px; padding:20px 0 10px; text-align:center;}
+      #pro_sel li .sel_img a{display:block; width:100%; height:100%; }
+      #pro_sel li .sel_img a img{height:100%;}
+      #pro_sel li.sel_box2 .sel_img img{width:100%;}
+      #pro_sel .sel_text{width:100%; height:100px; font-size:12px; font-weight:600; text-align:center;}
+
+      /* sel_text span 공통 */
+      #pro_sel .sel_text span{display:block; padding-bottom:5px;}
+      #pro_sel .sel_text .promotion{color:#BF1932;}
+      /* sel_text strong(title) */
+      #pro_sel .sel_text .desc{font-size:11px; color:#ccc; padding:5px 0 12px;}
+      #pro_sel .sel_text .price{font-size:11px; color:#000; font-weight:300; padding-bottom:15px;}
+
+      #pro_sel .sel_btn{width:200px; height:60px; text-align:center; margin:40px auto 0;}
+      #pro_sel .sel_btn a{display:block; width:100%; height:100%; line-height:60px; color:#fff; font-size:12px; background-color:#000;}
+      #pro_sel .sel_btn a:hover{background-color:#DD0A04;}
+
+   /* ############## experience ############### */
+      #experience{width:100%;}
+      /* 
+         experience에 있는 상,하 section별로 이미지 분리(하지만, 연결되는 이미지) background-size를 한 곳에만 맞출 시 section 분리 현상
+         해결 :: 100% 100% 를 줘서 해결
+      */
+      #experience .first_comp{width:100%; height:100vh; background-image:url('img/visual0.webp'); background-size:100%; background-attachment:fixed; background-repeat:no-repeat; background-position:bottom; }
+      /* experience inner 에 공통 relative 사용*/
+      #experience .inner{position:relative;}
+      /* 
+         각 영역에 position 적용
+
+         float 위치 적용 (공통 영역 간소화 고민)(수정)
+         :: float을 뺴고 desc 영역을 position으로 위치 설정
+      */
+      #experience .first_comp .desc{width:300px; height:300px; position:absolute; top:50%; right:0; transform:translateY(-50%); color:#fff;}
+      /* 공통 영역인 desc 영역 */
+      #experience .desc h2{font-size:12px;}
+      #experience .desc h3{padding-bottom:8px;}
+      #experience .desc .text{padding-bottom:18px;}
+      #experience .desc .shop_btn{width:100%; height:15px;}
+      #experience .desc .shop_btn span{display:block; width:50%; float:left; }
+      #experience .desc .shop_btn a{color:#DD0A04; font-size:10px;}
+      #experience .second_comp{width:100%; height:98vh; background-image:url('img/visual1.jpeg');background-size:100%; background-attachment:fixed; background-repeat:no-repeat; background-position:top ;}
+
+      /* 
+         각 영역에 position 적용 / float 위치 적용 (간소화 고민)
+      */
+      #experience .second_comp .desc_area{width:100%; height:300px; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);}
+      #experience .second_comp .desc{width:300px; height:300px; position:absolute; top:50%; left:0; transform:translateY(-50%);color:#fff;}
+
+   /* ############## tapContent ############ */
+      #tapContent{width:100%; height:600px;}
+      /* ######## collectionBan ######## */
+      #collectionBan{width:100%; background-color:#efefef;}
+      /* 
+         banner_area 너비 : 580px 
+         banner_text 글자 띄어쓰기
+         banner_area 높이 : 210px 
+      */
+      #collectionBan .banner_area{width:580px; height:380px; margin:0 auto; text-align:center;}
+      #collectionBan .banner_area h3{font-size:24px; padding:80px 0 20px;}
+      #collectionBan .banner_area .banner_text{width:100%; font-size:13px; color:#aaa; padding-bottom:20px;}
+      #collectionBan .banner_area .banner_btn{width:130px; height:30px; margin:0 auto;}
+      #collectionBan .banner_area a{display:block; width:100%; height:100%;}
+      #collectionBan .banner_area a button{width:100%; height:100%; border:1px solid #000; background-color:#efefef; padding:0 4px;}
+      #collectionBan .banner_area a button:hover{background-color:#000; color:#fff;}
+
+   /* ############## pushCollection ############ */
+      #pushCollection{width:100%; height:600px;}
+      #pushCollection div{width:50%; height:100%; float:left; position:relative;}
+      #pushCollection .m_collection{background-image:url('img/men-watches.webp'); background-size:100%; background-position:center; background-repeat:no-repeat;}
+      #pushCollection .w_collection{background-image:url('img/women-watches.webp'); background-size:100%; background-position:center; background-repeat:no-repeat;}
+      #pushCollection {width:100%; overflow:hidden; }
+      #pushCollection a{display:block; width:400px; text-align:center; margin:0 auto; position:absolute; left:50%; bottom:0; transform:translateX(-50%); color:#fff;}
+      #pushCollection a span{display:block; padding-bottom:8px; font-size:12px;}
+      #pushCollection a strong{display:block; padding-bottom:12px; font-size:28px;}
+      #pushCollection a .btn{font-size:14px; padding-bottom:0;}
+      #pushCollection a .btn:hover{text-decoration:underline;}
+
+
+   /* ############## pro_col ############### */
+      #pro_col{width:100%; height:700px; text-align:center; background-color:#000;}
+      #pro_col h2{font-size:18px; color:#fff; padding-top:40px;}
+      #pro_col .sub_title{font-size:12px; padding-top:10px; color:#ccc;}
+      #pro_col .collection{width:100%; padding-top:50px;}
+      #pro_col .collection ul{width:100%; height:500px;}
+      #pro_col .collection li{width:300px; height:420px; float:left; margin:40px 0;}
+      #pro_col .collection li{background-position:center; background-repeat:no-repeat; background-size:100%;}
+      #pro_col .collection .col0{background-image:url('img/cal0.JPEG');}
+      #pro_col .collection .col1{background-image:url('img/cal1.JPEG');}
+      #pro_col .collection .col2{background-image:url('img/cal2.JPEG');}
+      #pro_col .collection .active{width:400px; height:500px; margin:0 140px;}
+      #pro_col .collection a{display:block; width:100%; height:100%; color:#fff;}
+      #pro_col a span{display:block; font-size:12px;}
+      #pro_col a strong{display:block; font-size:28px; line-height:60px;}
+      #pro_col a .btn{font-size:11px;}
+      #pro_col a .btn:hover{text-decoration:underline;}
+
+   /* ############## sub_visual ############ */
+      #sub_visual{width:100%; height:600px; background-image:url('img/main_visual.JPEG'); background-repeat:no-repeat; background-size:cover; background-position:top;}
+
+   /* ############## banner ############### */
+      
+      #banner{width:100%; height:50px; overflow:hidden; background-color:#000;}
+      #banner p{width:200px; height:100%; margin:10px auto 0;}
+      #banner p img{width:100%;}
+
+   /* ############## footer ############### */
+      #footer{width:100%; background-color:#000; padding:80px 0;}
+      #footer:after{content:''; display:block; clear:both;}
+      #footer .inner div{width:20%; float:left; color:#fff;}
+      #footer ul{width:100%;}
+      #footer h3{font-size:14px; color:#fff; padding-bottom:20px;}
+      #footer li{width:100%;  padding-bottom:12px;}
+      #footer li a{display: inline-block; font-size:12px; position:relative; transition:.3s ease all; color:#777;}
+      #footer li a:after{content:''; width:0; height:1px; position:absolute; left:50%; bottom:-5px; background-color:#fff;  transform:translateX(-50%); transition:.5s ease all;}
+      #footer li a:hover:after{width:100%;}
+   
+
+   </style>
+</head>
+<body>
+   <div id="wrap">
+      <div id="tagheuerLogo">
+         <div class="inner">
+            <h1><a href="#" title="home"><img src="img/logo.SVG" alt="로고"></a></h1>
+         </div>
+      </div>
+      
+      <div id="container">
+
+         <div id="visual">
+
+            <div class="inner">
+               <div class="bg_doc">
+                  <div class="vis_title">
+                     <h2>
+                        NEW TAG HEUER
+                     </h2>
+                     <h3>
+                        CONNECTED CALIBRE E4
+                     </h3>
+                  </div>
+               </div>
+            </div>
+            <!-- bg_doc -->
+            <div id="product">
+
+               <div class="product_inner">
+                  <div class="product_sel">
+                     <div class="product_sellec">
+                        <ul>
+                           <li>
+                              <a href="#" title="prodect_sellec0">
+                                 <span>
+                                    <img src="img/product_sellec0.jpg" alt="prodect_sellec0">
+                                 </span>
+                              </a>
+                           </li>
+                           <li>
+                              <a href="#" title="prodect_sellec1">
+                                 <span>
+                                    <img src="img/product_sellec1.jpg" alt="prodect_sellec1">
+                                 </span>
+                              </a>
+                           </li>
+                           <li>
+                              <a href="#" title="prodect_sellec2">
+                                 <span>
+                                    <img src="img/product_sellec2.jpg" alt="prodect_sellec2">
+                                 </span>
+                              </a>
+                           </li>
+                           <li>
+                              <a href="#" title="prodect_sellec3">
+                                 <span>
+                                    <img src="img/product_sellec3.jpg" alt="prodect_sellec3">
+                                 </span>
+                              </a>
+                           </li>
+                        </ul>
+                     </div>
+                     <div class="img_area">
+                        <p>
+                           <img src="img/img0.png" alt="product"/>
+                        </p>
+                     </div>
+                  </div>
+                  <div class="product_desc">
+                     <div class="desc">
+                        <span>NEW</span>
+                        <h3>TAG HEUER CONNECTED CALIBRE E4 42 MM</h3>
+                        <p>
+                           Steel case - Steel Bracelet <br/>
+                           SBR8010.BA0617
+                        </p>
+                        <strong>₩ 2.710.000</strong>
+                     </div>
+                     <div class="color_doc">
+                        <span class="color0">
+                           <a href="#" title="color_0"></a>
+                        </span>
+                        <span class="color1">
+                           <a href="#" title="color_1"></a>
+                        </span>
+                        <span class="color2">
+                           <a href="#" title="color_2"></a>
+                        </span>
+                        <span class="color3">
+                           <a href="#" title="color_3"></a>
+                        </span>
+                     </div>
+                     <div class="more">
+                        <p class="cart">
+                           <a href="#" title="Add_To_Cart">Add To Cart</a>
+                        </p>
+                        <p class="strap">
+                           <a href="#" title="ADJUST_THR_STRAP">ADJUST THR STRAP</a>
+                        </p>
+                     </div>
+                     <div class="ader">
+                        <span>
+                           <a href="#" title="">
+                              <img src="img/sellec0.jpg" alt="product0">
+                           </a>
+                        </span>
+                        <span>
+                           <a href="#" title="">
+                              <img src="img/sellec1.jpg" alt="product1">
+                           </a>
+                        </span>
+                        <span>
+                           <a href="#" title="">
+                              <img src="img/sellec2.jpg" alt="product2">
+                           </a>
+                        </span>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <!-- product -->
+            
+         </div>
+         <!-- visual -->
+
+         
+
+         <div id="navWrap">
+            <div class="inner">
+               <ul class="menu">
+                  <li><a href="#" title="TIMEPIECES">TIMEPIECES</a></li>
+                  <li><a href="#" title="SMARTWATCHES">SMARTWATCHES</a></li>
+                  <li><i>|</i></li>
+                  <li><a href="#" title="GIFTS">GIFTS</a></li>
+                  <li><a href="#" title="TAG HEUER UNIVERSE">TAG HEUER UNIVERSE</a></li>
+               </ul>
+               <!-- icon은 포지션으로 오른쪽 배치 -->
+               <!-- 
+                  <ul class="iconArea">
+                     <li></li>
+                  </ul> 
+               -->
+            </div>
+         </div>
+         <!-- nav -->
+
+         <div id="pro_sel">
+            <div class="btn_area">
+               <div class="sellec_btn">
+                  <p class="sellec_btn0">
+                     <a href="#" title="42MM">42MM</a>
+                  </p>
+                  <p class="sellec_btn1">
+                     <a href="#" title="45MM">45MM</a>
+                  </p>
+               </div>
+            </div>
+            <div class="sellection">
+               <ul>
+                  <li class="sel_box0">
+                     <div class="sel_img">
+                        <a href="#" title="sellection">
+                           <img src="img/pro4.PNG" alt="sel_img0">
+                        </a>
+                     </div>
+                     <div class="sel_text">
+                        <a href="#" title="sellection">
+                           <span class="promotion">LIMITED QUANTITY</span>
+                           <strong>TAG Heuer Connected Calibre E4 42 mm</strong>
+                           <span class="desc">Steel case-Steel Bracelet</span>
+                           <span class="price">ALL 200,000</span>
+                        </a>
+                     </div>
+                  </li>
+                  <li class="sel_box1">
+                     <div class="sel_img">
+                        <a href="#" title="sellection">
+                           <img src="img/pro5.PNG" alt="sel_img1">
+                        </a>
+                     </div>
+                     <div class="sel_text">
+                        <a href="#" title="sellection">
+                           <span class="promotion">LIMITED QUANTITY</span>
+                           <strong>TAG Heuer Connected Calibre E4 42 mm</strong>
+                           <span class="desc">Steel case-Black Rubber Strap</span>
+                           <span class="price">ALL 250,000</span>
+                        </a>
+                     </div>
+                  </li>
+                  <li class="sel_box2">
+                     <div class="sel_img">
+                        <a href="#" title="sellection">
+                           <img src="img/pro6_0.PNG" alt="sel_img2">
+                        </a>
+                     </div>
+                     <div class="sel_text">
+                        <a href="#" title="sellection">
+                           <span class="promotion">LIMITED QUANTITY</span>
+                           <strong>TAG Heuer Connected Calibre E4 42 mm</strong>
+                           <span class="desc">Automatic Watch - Diameter 39 mm</span>
+                           <span class="price">ALL 200,000</span>
+                        </a>
+                     </div>
+                  </li>
+                  
+               </ul>
+            </div>
+            <!-- /selection -->
+            <div class="sel_btn">
+               <a href="#" title="selectionPage">
+                  <span>DISCOVER OUR NOVELTIES</span>
+               </a>
+            </div>            
+         </div>
+         <!-- pro_sel -->
+
+
+      <!-- video_area 다른 곳에 넣을지 -->
+         <!-- <div id="video_area">
+            <div class="textArea">
+               <span>Text</span>
+            </div>
+            <div class="video0">
+               <span>video</span>
+            </div>
+            <div class="video1">
+               <span>video</span>
+            </div>
+            <div class="textArea">
+               <span>Text</span>
+            </div>
+         </div> -->
+         <div id="experience">
+
+            <div class="first_comp">
+               <div class="inner">
+                  <div class="desc">
+                     <h2>3 HANDS LEATHER</h2>
+                     <h3>TAG HEUER CARRERA</h3>
+                     <p class="text">A reinterpreted design in a modern style, recognizable, with smooths, clean lines, and perfect proportions. The elegant alligator straps with steel folding clasp matches the dial, and embodies the elegance of one of the most iconic collections, since its introduction in 1963 by visionary Jack Heuer.</p>
+                     <p class="shop_btn">
+                        <span><a href="#" title="SHOP_ONLINE">SHOP ONLINE</a></span>
+                        <span><a href="#" title="DISCOVER THE COLLECTION">DISCOVER THE COLLECTION</a></span>
+                     </p>
+                  </div>
+               </div>
+            </div>
+            <div class="second_comp">
+               <div class="inner">
+                  <div class="desc">
+                     <h2>PROFESSIONAL 200</h2>
+                     <h3>TAG HEUER AQUARACER</h3>
+                     <p class="text">The TAG Heuer Aquaracer Professional 200 is the ultimate tool watch for explorers. Wherever life takes you, from the highest summits to the big city.</p>
+                     <p class="shop_btn">
+                        <span><a href="#" title="SHOP_ONLINE">SHOP ONLINE</a></span>
+                        <span><a href="#" title="DISCOVER THE COLLECTION">DISCOVER THE COLLECTION</a></span>
+                     </p>
+                  </div>
+               </div>
+            </div>
+
+         </div>
+         <!-- experience -->
+
+         <div id="collectionBan">
+            <div class="banner_area">
+               <h3>SWISS AVANT-GARDE SINCE 1860</h3>
+               <p class="banner_text">
+                  The reference in luxury chronograph watches, TAG Heuer’s high-precision timing innovations
+                  have kept pace with the evolution of sports since 1860. Our timepieces make it possible to
+                  capture every fraction of a second of a performance. From the wrists of the drivers who have
+                  marked the history of motor racing to your wrist, TAG Heuer watches have a lasting impact on
+                  their time and their era.
+               </p>
+               <p class="banner_btn">
+                  <a href="#" title="Find_The_Perfect_Watch">
+                     <button>Find The Perfect Watch</button>
+                  </a>
+               </p>
+            </div>
+         </div>
+         <!-- collectionBan -->
+         
+         <!-- videoArea -->
+
+         <div id="pushCollection">
+            <div class="m_collection">
+               <a href="#" title="man_collection">
+                  <span>OUR TAG HEUER</span>
+                  <strong>MEN'S WATCHES</strong>
+                  <span class="btn">DISCOVER</span>
+               </a>
+            </div>
+            <div class="w_collection">
+               <a href="#" title="women_collection">
+                  <span>OUR TAG HEUER</span>
+                  <strong>WOMEN'S WATCHES</strong>
+                  <span class="btn">DISCOVER</span>
+               </a>
+            </div>
+         </div>
+         <!-- pushCollection -->
+
+         <div id="pro_col">
+            <div class="inner">
+               <h2>COLLECTIONS</h2>
+               <p class="sub_title">Discover the TAG Heuer collections and all of our watches</p>
+               <div class="collection">
+                  <ul>
+                     <li class="col0">
+                        <a href="#" title="CONNECTED">
+                           <span>TAG HEUER</span>
+                           <strong>CONNECTED</strong>
+                           <span class="btn">DISCOVER THE COLLECTIONCONNECTED</span>
+                        </a>
+                     </li>
+                     <li class="col1 active">
+                        <a href="#" title="CARRERA">
+                           <span>TAG HEUER</span>
+                           <strong>CARRERA</strong>
+                           <span class="btn">DISCOVER THE COLLECTIONCONNECTED</span>
+                        </a>
+                     </li>
+                     <li class="col2">
+                        <a href="#" title="FORMULA1">
+                           <span>TAG HEUER</span>
+                           <strong>FORMULA1</strong>
+                           <span class="btn">DISCOVER THE COLLECTIONCONNECTED</span>
+                        </a>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+         <!-- pro_col -->
+
+         
+
+         <!-- <div id="sub_visual">
+         </div> -->
+         <!-- sub_visual -->
+
+         <div id="banner">
+            <p>
+               <img src="img/banner.png" alt="tagheuer">
+            </p>
+         </div>
+         <!-- banner -->
+      </div>
+      <!-- container  -->
+      <div id="footer">
+         <div class="inner">
+
+            <div class="f_follow">
+               <h3>FOLLOW US</h3>
+               <ul>
+                  <li><a href="#" title="Facebook">Facebook</a></li>
+                  <li><a href="#" title="Instagram">Instagram</a></li>
+                  <li><a href="#" title="LinkedIn">LinkedIn</a></li>
+                  <li><a href="#" title="Pinterest">Pinterest</a></li>
+                  <li><a href="#" title="Youtube">Youtube</a></li>
+                  <li><a href="#" title="Twitter">Twitter</a></li>
+                  <li><a href="#" title="Weibo">Weibo</a></li>
+                  <li><a href="#" title="WeChat">WeChat</a></li>
+                  <li><a href="#" title="Line">Line</a></li>
+                  <li><a href="#" title=""></a></li>
+               </ul>
+            </div>
+            <div class="f_collection">
+               <h3>COLLECTIONS</h3>
+               <ul>
+                  <li><a href="#" title="TAG_Heuer_Connected">TAG Heuer Connected</a></li>
+                  <li><a href="#" title="TAG_Heuer_Carrera">TAG Heuer Carrera</a></li>
+                  <li><a href="#" title="TAG_Heuer_Formula_1">TAG Heuer Formula 1</a></li>
+                  <li><a href="#" title="TAG_Heuer_Aquaracer">TAG Heuer Aquaracer</a></li>
+                  <li><a href="#" title="TAG_Heuer_Monaco">TAG Heuer Monaco</a></li>
+                  <li><a href="#" title="TAG_Heuer_Autavia">TAG Heuer Autavia</a></li>
+                  <li><a href="#" title="TAG_Heuer_Link">TAG Heuer Link</a></li>
+               </ul>
+            </div>
+            <div class="f_maison">
+               <h3>MAISON</h3>
+               <ul>
+                  <li><a href="#" title="Our_Company">Our Company</a></li>
+                  <li><a href="#" title="Our_Story">Our Story</a></li>
+                  <li><a href="#" title="Savoir-Faire">Savoir-Faire</a></li>
+                  <li><a href="#" title="Press_Corner">Press Corner</a></li>
+                  <li><a href="#" title="Professional_Timing ">Professional Timing </a></li>
+                  <li><a href="#" title="Career">Career</a></li>
+                  <li><a href="#" title="Site_map">Site map</a></li>
+               </ul>
+            </div>
+            <div class="f_support">
+               <h3>SUPPORT</h3>
+               <ul>
+                  <li><a href="#" title="Contact_Us">Contact Us</a></li>
+                  <li><a href="#" title="FAQ">FAQ</a></li>
+                  <li><a href="#" title="Customer_Care">Customer Care</a></li>
+                  <li><a href="#" title="Warranty">Warranty</a></li>
+                  <li><a href="#" title="Shipping">Shipping</a></li>
+                  <li><a href="#" title="Returns">Returns</a></li>
+                  <li><a href="#" title="Buying_on_TAGHeuer.com">Buying on TAGHeuer.com</a></li>
+                  <li><a href="#" title="PRIVACY_N_TERMS">PRIVACY &amp; TERMS</a></li>
+               </ul>
+            </div>
+            <div class="f_terms">
+               <h3>PRIVACY &amp; TERMS</h3>
+               <ul>
+                  <li><a href="#" title="Terms & Conditions">Terms &amp; Conditions</a></li>
+                  <li><a href="#" title="Privacy_Policy">Privacy_Policy</a></li>
+                  <li><a href="#" title="Cookies_Settings">Cookies Settings</a></li>
+                  <li><a href="#" title="Press_Corner">Press Corner</a></li>
+                  <li><a href="#" title="Professional_Timing ">Professional Timing </a></li>
+                  <li><a href="#" title="Terms_of_Use">Terms of Use</a></li>
+                  <li><a href="#" title="Human_Rights_Policy">Human Rights Policy</a></li>
+                  <li><a href="#" title="Supply_Chain_Policies">Supply Chain Policies</a></li>
+                  <li><a href="#" title="Legal_Notice">Legal Notice</a></li>
+                  <li><a href="#" title="Accessibility_Statement">Accessibility Statement</a></li>
+               </ul>
+            </div>
+
+         </div>
+      </div>
+      <!-- footer -->
+   </div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <title>login</title>
+    <style>
+        *{margin:0; padding:0;}
+        .container{margin-top:20px;}
+    </style>
+</head>
+<body>
+<!-- 가져옴 -->
+    <div class="navbar navbar-inverse">
+        <div class="container-fluid">
+
+            <div class="navbar-header">
+
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav_menu" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar first-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a class="navbar-brand">
+                    bootstrap 강의
+                </a>
+
+            </div>
+
+            <div class="collapse navbar-collapse" id="nav_menu">
+                <ul class="nav navbar-nav">
+                    <li><a>HTML</a></li>
+                    <li class="active"><a>PYTHON</a></li>
+                    <li><a>JAVASCRIPT</a></li>
+                    <li><a>PHP</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <div class="container">
+
+        <div class="col-md-4 col-md-offset-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3>login</h3>
+                </div>
+                <div class="panel-body">
+                    <input type="text" class="form-control" placeholder="ID" style="margin-bottom:20px">
+                    <input type="password" class="form-control" placeholder="password" style="margin-bottom:20px">
+                    <button class="btn btn-lg btn-success btn-block">로그인</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

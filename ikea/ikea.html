@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/default.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="https://kit.fontawesome.com/9ed5c8ba64.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <title>Document</title>
+    
+    <style>
+        .left-menu{position:fixed; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,.5); z-index:9999999; display:none;}        
+        .left-menu .inner{max-width:400px; height:100%; background:#0058ab; padding-top:100px; left:-400px; transition: all 0.3s;}
+        .left-menu .inner .logo{display: block; max-width: 100px; margin:auto; width:100%; margin-bottom:40px;}
+        
+        .left-menu .inner ul li{padding-left:100px; color:#fff;}
+        .left-menu .inner ul li a{display:inline-block; margin-bottom:24px;}
+        .left-menu .inner ul li a::after{content:''; width:0%; height:1px; background:#fff; position:absolute; left:0; bottom:-6px; transition:all 0.3s;}
+        .left-menu .inner ul li a:hover::after{width:100%;}
+        .left-menu .inner ul li a.first-menu{font-size:1em; font-weight:500;}
+        .left-menu .inner ul li.active{ margin-top:60px;}
+        .left-menu .inner ul li.active::after{ content:'';  display:block; position:absolute; left:50%; transform: translateX(-50%); top:-40px; width:200px; height:1px; background: #fff;}
+
+        .left-menu .inner ul li a.second-menu{font-weight:300; font-size:0.9em;}
+        .left-menu .inner .close-btn{position:absolute; right:30px; top:30px; color:#fff; font-size:2em; font-weight:lighter;}
+        
+        .right-menu{position:fixed; right:10px; top:90px; z-index:999999; display: none;}
+        .right-menu a{display: block; width:34px; height:34px; background:#fff; border-radius:50%; margin-bottom:20px;}
+        .right-menu a i{position:absolute; left:50%; top:54%; transform:translate(-50%,-50%); font-size: 1.2em;}
+
+        /* header css */
+        #header-wrapper{width:100%; height:84px; background:#f4f4f4; position:fixed; left:0; top:0; z-index:9999; padding-top:22px; transition: all 0.3s;}
+        #header-wrapper .hambuger-menu{ font-size:1.6em; color:#ccc; padding-top:8px; display: inline-block; margin-right:40px; }
+        #header-wrapper .hambuger-menu i{ transition:0.3s all;}
+
+        #header-wrapper .fl a{vertical-align:middle;}
+        #header-wrapper .fl a img{height:40px; vertical-align:middle;}
+
+        #header-wrapper .fr a{margin-left:24px;}
+        /* #header-wrapper .fr a img{width:28px; } */
+        #header-wrapper .fr .icon-box{display: inline-block; vertical-align: middle;}        
+        #header-wrapper .fr .icon-box i{ font-size:1.3em; color:#ccc; transition: all 0.3s;}
+        #header-wrapper .fr .icon-box i:hover{ color:#000;}
+        #header-wrapper .fr .icon-box.mobile-icon-box{ display: none; }
+        #header-wrapper .fr .search-box{width:130px; height:40px; display:inline-block; vertical-align: middle; background:#d9d9d9; border-radius: 30px; overflow:hidden; font-size:0.9em; transition: all 0.3s;}
+        #header-wrapper .fr .search-box i{ position: absolute; right:20px; top:15px; color: #666;}
+        #header-wrapper .fr .search-box input{width:100%; height:100%; outline: none; border:none; background:none; padding:0px 40px 0px 20px; }
+
+        #footer-wrapper{padding:40px 0px 50px; background:#0058ab; color:#fff;}
+        #footer-wrapper .fl h5{font-size: 1.5em; font-weight:600; margin-bottom:20px;}
+        #footer-wrapper .fl p{font-size: 1em; line-height:1.5;margin-bottom:26px;}
+        #footer-wrapper .fl a{display:inline-block; width:170px; height:45px; background:#fff; text-align:center; line-height:48px; border-radius:30px; color:#0058ab; font-weight:600;  font-size:1.2em; border:1px #fff solid;  overflow: hidden; transition:.3s all;}
+        #footer-wrapper .fr ul{ margin-bottom:80px;}
+        #footer-wrapper .fr ul li{display: inline-block; vertical-align: top; margin-left:40px; font-size:0.9em; font-weight: 600;}
+
+        #footer-wrapper .fr .icon-box{ font-size:2em; text-align:right;}
+        #footer-wrapper .fr .icon-box i{ margin-left:20px;}
+        #footer-wrapper .fr em{ position:absolute; right:0px; bottom: -36px; font-size:0.9em;}
+
+        #main-page h3{font-size:2em; font-weight:600; margin-bottom:20px; text-align:center;} 
+        #main-page h4{font-size:1.2em; font-weight:400; margin-bottom:50px; text-align:center;}
+
+        /* content start sld-wrapper */
+        #main-page .sld-wrapper{width:100%; height:100vh; background-size:cover; background-position:center; background-repeat: no-repeat; background-image:url('img/ikea-home.jpeg');}
+        #main-page .sld-wrapper::after{content:''; position:absolute; left:0; top:0; background:rgba(0,0,0,0.7); z-index:0; width:100%; height:100%;}
+        #main-page .sld-wrapper .sld-box{position:absolute;left:0; top:55%; transform:translateY(-50%); width:100%; z-index: 2; }
+
+        #main-page .sld-wrapper .sld-box .owl-item{ z-index:-1;}
+        #main-page .sld-wrapper .sld-box .owl-item.center{ z-index:1;}
+        #main-page .sld-wrapper .owl-item iframe{ transform: scale(0.8); transition: all 0.3s; z-index: 0;}
+        #main-page .sld-wrapper .owl-item.center iframe{ transform: scale(1); z-index: 1;}
+
+        #main-page .sld-wrapper .sld-box .btn-box{ text-align: center; margin-top:40px;}
+        #main-page .sld-wrapper .btn-box a{display:inline-block; width:180px; height:50px; background:#e0d22e; text-align:center; line-height:52px; border-radius:30px; color:#fff; font-weight:600; margin:0px 10px;}
+        #main-page .sld-wrapper .btn-box a.active{ background:#0058ab;}        
+
+        #main-page .item-wrapper{width:100%; padding:120px 0;}
+        #main-page .item-wrapper .fl{ margin-bottom:20px;}
+        #main-page .item-wrapper .fl .bg-box{width:100%;padding-top:100%; background-position:center; background-repeat:no-repeat; background-size:cover;  font-size: 1em; cursor:pointer;}
+        #main-page .item-wrapper .fl .bg-box p{position:absolute ; left: 50%;top: 50%; transform: translate(-50%,-50%); font-size:1.5em; z-index:3; color:#fff; font-weight:600; transition:all 1s; opacity: 1;}
+
+        #main-page .item-wrapper .fl .bg-box .hidden-box{ opacity: 0; width: 120%; height: 120%; background: rgba(255,255,255,0.7); transition: all 1s; position: absolute; left: 0px; top:0px; z-index: 10; padding:20px 0; }
+        #main-page .item-wrapper .fl .bg-box:hover{ transform: rotateY(180deg); transform-style: preserve-3d; transition: 1s;}
+        #main-page .item-wrapper .fl .bg-box:hover .hidden-box{ opacity: 1;}
+        #main-page .item-wrapper .fl .bg-box:hover p{opacity: 0;}
+        #main-page .item-wrapper .lf .bg-box .hidden-box .claer{ margin:auto }
+        #main-page .item-wrapper .fl .bg-box .hidden-box .clear .fl{ padding:0px 10px;}
+        #main-page .item-wrapper .fl .bg-box .hidden-box .clear .fl .item{width:100%; padding-top:100%; border:1px solid #000; }
+
+        /* #main-page .item-wrapper .fl .bg-box .hidden-box{position:fixed; width:100%; height:100%; left: 0;top: 0; background:rgba(0,0,0,0.3); z-index:9999;padding:0 20px;} */
+        /* #main-page .item-wrapper .fl .bg-box .hidden-box .hidden-inner{position:relative; left:0; top: 50%; transform: translateY(-50%); width:100%; max-width:500px; background:#fff; margin:auto; padding:40px 0px; border-radius: 6px; }
+        #main-page .item-wrapper .fl .bg-box .hidden-box .hidden-inner span{font-size:1.3em; font-weight:600; text-align: center; display: block; margin-bottom:20px;}
+        #main-page .item-wrapper .fl .bg-box .hidden-box .hidden-inner .clear{max-width:500px; width:100%; margin:auto;}
+        #main-page .item-wrapper .fl .bg-box .hidden-box .hidden-inner .fl .imx-harf{border:1px solid #000; padding-top:100%;} */
+        
+        
+        #main-page .item-wrapper .fl .bg-box::after{content:''; display: block; position:absolute; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,.5);}
+        #main-page .item-wrapper .btn-box{text-align: center; margin-top:40px;}
+        #main-page .item-wrapper .btn-box a{display:inline-block; width:200px; height:60px; background:#0058ab; text-align:center; line-height:62px; border-radius:30px; color:#fff; font-weight:600;  font-size:1.2em;}
+        
+        #main-page .banner-wrapper{background-position:center; background-repeat: no-repeat; background:url('img/banner1.jpeg'); height:400px; z-index: 3; padding-top:55px; background-size:contain;}  
+        #main-page .banner-wrapper::before{content:''; position:absolute; left: 0;top: 0; background:rgba(0,0,0,0.3); width:100%; height:100%; z-index: 0;}
+        #main-page .banner-wrapper .fl{text-align: right; padding-right:140px; padding-top:100px;}
+        #main-page .banner-wrapper .fl img{ width:160px;}
+        #main-page .banner-wrapper .fr{padding-left:60px;}
+        #main-page .banner-wrapper .fr h5{font-size:2.3em; color:#fff; margin-bottom:30px; font-weight:600; margin-top:30px;}
+        #main-page .banner-wrapper .fr p{font-size:1.2em; color:#fff; line-height:1.7; margin-bottom:40px; word-break: keep-all;}
+        #main-page .banner-wrapper .fr a{display:inline-block; width:180px; height:50px; background:#0058ab; text-align:center; line-height:52px; border-radius:30px; color:#fff; font-weight:600;  font-size:1em;}
+
+        #main-page .box-wrapper { padding:120px 0px;}
+        #main-page .box-wrapper .over-box{ height: 900px; overflow:hidden;}
+        #main-page .box-wrapper .over-box .more-btn{ position:absolute; bottom:0px; left: 50%; transform: translateX(-50%); width:180px; height:50px; line-height: 52px; text-align: center; font-size:1em; font-weight: 600; color: #fff; background:#e0d22e; border-radius: 30px; z-index: 999;}
+        #main-page .box-wrapper .over-box .bg-box{ display: block; content: ''; position: absolute; left:0px; bottom:0px;  background: linear-gradient( to bottom, rgba(255,255,255,0.05), #fff ); width: 100%; height: 200px; z-index: 998;}
+        #main-page .box-wrapper .grid-item { width: 33.3%; height: auto; display: inline-block; margin-bottom: 24px; padding:0px 12px;}
+        #main-page .box-wrapper .grid-item .item{outline: 1px #ccc solid; cursor:pointer; transition:.3s all;}
+        #main-page .box-wrapper .grid-item .item:hover{outline: none; box-shadow: 3px 3px 10px rgba(0,0,0,0.2);}
+        #main-page .box-wrapper .grid-item .item.active{ outline:none;}
+        #main-page .box-wrapper .grid-item .item img{ width:100%;}
+        #main-page .box-wrapper .grid-item .item img.active{display:block; width:50%; margin:auto; padding-bottom:30px;}
+        #main-page .box-wrapper .grid-item .item .text-box{padding:24px; }
+        #main-page .box-wrapper .grid-item .item .text-box .date{font-size:1.1em; margin-bottom:15px;}
+        #main-page .box-wrapper .grid-item .item .text-box .text-title{font-size:1.3em; font-weight:600; margin-bottom:15px;}
+        #main-page .box-wrapper .grid-item .item .text-box .hash-box a{ display: inline-block; margin-right: 10px; margin-bottom:10px; width: 90px; height:40px; border-radius: 32px; background:#0058ab; text-align:center; line-height:42px; color: #fff; font-weight: 600; font-size: 1.1em; }
+
+        #main-page .event-wrapper .fl{background-size:cover; background-position: center; background-repeat:no-repeat; height:100vh; text-align: center; color:#fff; }
+        #main-page .event-wrapper .fl::before{content:''; position:absolute; left: 0;top: 0; background:rgba(0,0,0,0.4); width:100%; height:100%; z-index: 0;}
+        #main-page .event-wrapper .fl:nth-child(1){background-image:url('img/event4.jpeg')}
+        #main-page .event-wrapper .fl:nth-child(2){background-image:url('img/event5.jpeg')}
+        #main-page .event-wrapper .fl:nth-child(3){background-image:url('img/event6.jpeg')}
+        #main-page .event-wrapper .fl .text-box{ width:100%; position: absolute; left:0px; top:50%; transform: translateY(-50%); }
+        #main-page .event-wrapper .fl p{font-size: 2em; margin-bottom:35px; padding-bottom:20px; border-bottom:2px solid #fff; max-width:200px; width:100%; display: inline-block;}
+        #main-page .event-wrapper .fl span{line-height: 1.6; font-size:1.15em; display: block; margin-bottom:50px; height:54px;}
+
+        #main-page .event-wrapper .fl a{display:inline-block; width:200px; height:60px; background:none; text-align:center; line-height:62px; border-radius:30px; color:#fff; font-weight:600;  font-size:1.2em; border:1px #fff solid;  overflow: hidden; transition:.3s all;}
+        #main-page .event-wrapper .fl a::after{ background:#0058ab; display: block; content: ''; position: absolute; left:0px; top:0px; width:0%; height:100%; transition:.3s all; z-index: -1;}
+        #main-page .event-wrapper .fl a:hover{ border: 1px #0058ab solid;}
+        #main-page .event-wrapper .fl a:hover::after{ width:100%;}
+
+
+        @media screen and (max-width:1020px){
+
+            .left-menu .inner{max-width:300px; height:100%; background:#0058ab; padding-top:60px; left:-400px; transition: all 0.3s;}
+            .left-menu .inner ul li.active::after{ content:'';  display:block; position:absolute; left:50%; transform: translateX(-50%); top:-40px; width:120px; height:1px; background: #fff;}
+
+            #header-wrapper{width:100%; height:74px; background:#f4f4f4; position:fixed; left:0; top:0; z-index:9999; padding-top:17px; transition: all 0.3s;}
+            #header-wrapper .hambuger-menu{ font-size:1.8em; color:#ccc; padding-top:8px; display: inline-block; margin-right:20px; }
+            #header-wrapper .fl a{vertical-align:middle;}
+            #header-wrapper .fr a{margin-left:10px;}
+            #header-wrapper .fl a img{height:35px; vertical-align:middle; margin-top:3px;}
+            #header-wrapper .fr .icon-box.pc-icon-box{ display: none;}
+            #header-wrapper .fr .icon-box.mobile-icon-box{ display: inline-block;}
+            #header-wrapper .fr .icon-box i{ font-size:1.6em; color:#ccc; transition: all 0.3s;}
+            #header-wrapper .fr .icon-box i:hover{ color:#000;}
+
+            #main-page h3{font-size:1.6em; font-weight:600; margin-bottom:15px; text-align:center;} 
+            #main-page h4{font-size:1.1em; font-weight:400; margin-bottom:30px; text-align:center;}
+
+            #main-page .sld-wrapper .btn-box a{display:inline-block; width:160px; height:50px; background:#e0d22e; text-align:center; line-height:52px; border-radius:30px; color:#fff; font-weight:600; margin:0px 10px;}
+
+            #main-page .item-wrapper{width:100%; padding:60px 0;}
+            #main-page .item-wrapper .fl{ margin-bottom:20px; width:50%;}
+            #main-page .item-wrapper .fl .bg-box{width:100%;padding-top:100%; background-position:center; background-repeat:no-repeat; background-image:url('../img/main-img01.jpg'); background-size:cover; }
+            #main-page .item-wrapper .fl .bg-box::after{content:''; display: block; position:absolute; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,.5);}
+            #main-page .item-wrapper .mobile-box{ display: none;}
+            #main-page .item-wrapper .btn-box{text-align: center; margin-top:20px;}
+            #main-page .item-wrapper .btn-box a{display:inline-block; width:160px; height:50px; background:#0058ab; text-align:center; line-height:52px; border-radius:30px; color:#fff; font-weight:600;  font-size:1em;}
+
+            #main-page .banner-wrapper{background-position:center; background-repeat: no-repeat; background:url('img/banner1.jpeg'); height:auto; z-index: 3; padding:60px 0px; background-size:cover; }  
+            #main-page .banner-wrapper::before{content:''; position:absolute; left: 0;top: 0; background:rgba(0,0,0,0.3); width:100%; height:100%; z-index: 0;}
+            #main-page .banner-wrapper .fl{text-align: center; padding-right:0px; padding-top:0px; width:100%;}
+            #main-page .banner-wrapper .fl img{ width:100px;}
+            #main-page .banner-wrapper .fr{padding-left:0px; width:100%; text-align:center;}
+            #main-page .banner-wrapper .fr h5{font-size:1.6em; color:#fff; margin-bottom:20px; font-weight:600; margin-top:20px;}
+            #main-page .banner-wrapper .fr p{font-size:1.1em; color:#fff; line-height:1.7; margin-bottom:30px; padding:0px 40px;}
+            #main-page .banner-wrapper .fr a{display:inline-block; width:160px; height:50px; background:#0058ab; text-align:center; line-height:52px; border-radius:30px; color:#fff; font-weight:600;  font-size:1em;}
+
+            #main-page .box-wrapper { padding:60px 0px;}
+            #main-page .box-wrapper .grid-item { width: 50%; height: auto; display: inline-block; margin-bottom: 24px; padding:0px 12px;}
+
+            #main-page .event-wrapper .fl{background-size:cover; background-position: center; background-repeat:no-repeat; width:100%; height:auto; text-align: inherit; color:#fff; padding:30px 24px 90px;}
+            #main-page .event-wrapper .fl::before{content:''; position:absolute; left: 0;top: 0; background:rgba(0,0,0,0.75); width:100%; height:100%; z-index: 0;}
+            #main-page .event-wrapper .fl:nth-child(1){background-image:url('img/event1.jpeg')}
+            #main-page .event-wrapper .fl:nth-child(2){background-image:url('img/event2.jpeg')}
+            #main-page .event-wrapper .fl:nth-child(3){background-image:url('img/event3.jpeg')}
+            #main-page .event-wrapper .fl .text-box{ width:100%; position: relative; left:auto; top:auto; transform:none; text-align: left;}
+            #main-page .event-wrapper .fl p{font-size: 1.6em; margin-bottom:20px; padding-bottom:20px; border-bottom:2px solid #fff; max-width:120px; width:100%; display: inline-block;}
+            #main-page .event-wrapper .fl span{line-height: 1.6; font-size:1em; display: block; margin-bottom:0px; height:54px;}
+
+            #main-page .event-wrapper .fl a{display:inline-block; width:160px; height:50px; background:none; text-align:center; line-height:52px; border-radius:30px; color:#fff; font-weight:600;  font-size:1em; border:1px #fff solid;  overflow: hidden; transition:.3s all; position: absolute; right:0px; bottom:-70px; z-index: 10;}
+            #main-page .event-wrapper .fl a::after{ background:#0058ab; display: block; content: ''; position: absolute; left:0px; top:0px; width:0%; height:100%; transition:.3s all; z-index: -1;}
+            #main-page .event-wrapper .fl a:hover{ border: 1px #0058ab solid;}
+            #main-page .event-wrapper .fl a:hover::after{ width:100%;}
+
+            #footer-wrapper{padding:40px 0px 50px; background:#0058ab; color:#fff;}
+            #footer-wrapper .fl{ position:absolute; left:0px; transform: none; top:54px; text-align: center; width: 100%;}
+            #footer-wrapper .fl h5{font-size: 1.5em; font-weight:600; margin-bottom:20px;}
+            #footer-wrapper .fl p{font-size: 1em; line-height:1.7;margin-bottom:20px;}
+            #footer-wrapper .fl a{display:inline-block; width:160px; height:40px; background:#fff; text-align:center; line-height:42px; border-radius:30px; color:#0058ab; font-weight:600;  font-size:1em; border:1px #fff solid;  overflow: hidden; transition:.3s all;}
+            #footer-wrapper .fr{ float: none; width: 100%;}
+            #footer-wrapper .fr ul{ margin-bottom:0px; margin:0px auto 220px; text-align: center;}
+            #footer-wrapper .fr ul li{display: inline-block; vertical-align: top; margin-left:0px; font-size:0.9em; font-weight: 600; margin:0px 15px;}
+
+            #footer-wrapper .fr .icon-box{ font-size:2em; text-align:center; margin-bottom: 20px;}
+            #footer-wrapper .fr .icon-box i{ margin-left:0px; margin:0px 10px;}
+            #footer-wrapper .fr em{ position:relative; right:auto; bottom: auto; font-size:0.9em; text-align: center; display: block;}
+
+        }
+
+        @media screen and (max-width:700px){
+            #main-page .box-wrapper .grid-item { width: 100%; height: auto; display: inline-block; margin-bottom: 24px; padding:0px 12px;}
+            #main-page .box-wrapper .grid-item:first-child{ display: none;;}
+        }
+
+        @media screen and (max-width:520px){
+            #main-page .sld-wrapper{width:100%; height:70vh; background-size:cover; background-position:center; background-repeat: no-repeat; background-image:url('img/ikea-home.jpeg');}
+        }
+
+    </style>
+    <script>
+        $(document).ready(function(){
+            
+            // header menu hover 초기값
+            $('.hover-menu').hover(function(){
+                $(this).css({"color" : "#000"})
+            } , function(){
+                $(this).css({"color" : "#ccc"})
+            });
+
+            $(window).scroll(function(){
+                if($(this).scrollTop() > 40){
+                    $("#header-wrapper").css({"background" : "#0058ab"});
+                    $("#header-wrapper .fr .icon-box i").css({"color" : "#fff"});
+                    $("#header-wrapper .hambuger-menu").css({"color" : "#fff"});
+                    $("#header-wrapper .fr .search-box i").css({"color" : "#0058ab"});
+                    $("#header-wrapper .fr .search-box").css({"background" : "#e0d22e"});
+                    $("#header-wrapper .fr .search-box input").css({"color" : "#0058ab"});
+
+                    $('.hover-menu').hover(function(){
+                        $(this).css({"color" : "#000"})
+                    } , function(){
+                        $(this).css({"color" : "#fff"})
+                    });
+                } else{
+                    $("#header-wrapper").css({"background" : "#f4f4f4"});
+                    $("#header-wrapper .fr .icon-box i").css({"color" : "#ccc"});
+                    $("#header-wrapper .hambuger-menu").css({"color" : "#ccc"});
+                    $("#header-wrapper .fr .search-box i").css({"color" : "#666"});
+                    $("#header-wrapper .fr .search-box").css({"background" : "#d9d9d9"});
+                    $("#header-wrapper .fr .search-box input").css({"color" : "#none"});
+
+                    $('.hover-menu').hover(function(){
+                        $(this).css({"color" : "#000"})
+                    } , function(){
+                        $(this).css({"color" : "#ccc"})
+                    });
+                }
+            });
+
+            $('.owl-carousel').owlCarousel({
+                center: true,
+                items:2,
+                loop:true,
+                autoplay:true,
+                autoplayTimeout: 4000,
+                margin:-100,
+                nav: false,
+                dots: false,
+                navText: ["<i class='fas fa-chevron-left'></i>","<i class='fas fa-chevron-right'></i>"],
+                mouseDrag : true,
+                touchDrag : true,       
+                responsive : {
+                    0 : {
+                        items:1,
+                    },
+                    1020 : {
+                        items:2,
+                    }
+                }
+            });
+
+            //최초 로드 시 iframe 높이값 비율에 맞게 세팅
+            var $videoIframe = document.getElementsByClassName('video');
+
+            for(var i=0;i<$videoIframe.length;i++) {
+                var responsiveHeight = $videoIframe[i].offsetWidth * 0.5625;
+                $videoIframe[i].setAttribute('height', responsiveHeight);
+            }
+
+            //브라우저 리사이즈 시 iframe 높이값 비율에 맞게 세팅
+            window.addEventListener('resize', function(){
+            for(var i=0;i<$videoIframe.length;i++) {
+                responsiveHeight = $videoIframe[i].offsetWidth * 0.5625;
+                $videoIframe[i].setAttribute('height', responsiveHeight);
+            }
+            });
+
+            $('.grid').masonry({
+                itemSelector: '.grid-item',
+                fitwidth: true ,
+            });
+
+            $(".more-btn").on("click" , function(){
+                $(this).fadeOut();
+                $(".over-box .bg-box").fadeOut();
+                $(".over-box").css({"overflow" : "auto" , "overflow-Y" : "scroll"});
+            });
+            
+
+            $(".search-input").on("focus",function(){
+                $(".search-box").css({"width" : "200px"});
+            });
+            
+            $(".search-input").on("focusout",function(){
+                $(".search-box").css({"width" : "130px"});
+            });
+
+            $(".hambuger-menu").on("click" , function(){
+                $(".left-menu").fadeIn();
+                $(".left-menu .inner").css({"left" : "0px"});
+            });
+            
+            $(".close-btn").on("click" , function(){
+                $(".left-menu").fadeOut();
+                $(".left-menu .inner").css({"left" : "-400px"});
+            });
+
+            $(".mobile-icon-box").on("click" , function(){
+                $(".right-menu").slideToggle();
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+    <div class="left-menu">
+        <div class="inner">
+            <a class="logo"><img src="https://blog.kakaocdn.net/dn/bcUz9J/btqELRj7PBP/0jwfTog7eYg0cC1toK5TT1/img.jpg" alt=""></a>
+            <a class="close-btn"><i class="fas fa-times"></i></a>
+            <ul>
+                <li><a class="first-menu">모든 제품</a></li>
+                <li><a class="first-menu">디지털 쇼룸</a></li>
+                <li><a class="first-menu">할인 중</a></li>
+                <li><a class="first-menu">더 낮은 새로운 가격</a></li>
+                <li><a class="first-menu">아이디어</a></li>
+                <li><a class="first-menu">IKEA Live</a></li>
+                <li><a class="first-menu">새로운 소식</a></li>
+
+                <li class="active"><a class="second-menu">매장안내</a></li>
+                <li><a class="second-menu">IKEA Family</a></li>
+                <li><a class="second-menu">고객지원</a></li>
+                <li><a class="second-menu">배송조회</a></li>
+                <li><a class="second-menu">내 프로필</a></li>
+            </ul>            
+        </div>
+    </div>
+
+    <div class="right-menu">
+        <a><i class="fas fa-user"></i></a>
+        <a><i class="fas fa-shopping-bag"></i></a>
+        <a><i class="fas fa-heart"></i></a>
+        <a><i class="fas fa-globe"></i></a>
+    </div>
+
+    <div id="header-wrapper">
+
+        <div class="row">
+
+            <div class="imx">
+                <div class="clear">
+                    <div class="fl">
+                        <a class="hambuger-menu"><i class="fas fa-bars hover-menu"></i></a>
+
+                        <a><img src="https://blog.kakaocdn.net/dn/bcUz9J/btqELRj7PBP/0jwfTog7eYg0cC1toK5TT1/img.jpg" alt=""></a>
+                        
+                    </div>
+
+                    <div class="fr">
+                        <div class="search-box">
+                            <input type="text" placeholder="Search" class="search-input">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <div class="icon-box pc-icon-box">
+                            <a><i class="hover-menu fas fa-user"></i></a>
+                            <a><i class="hover-menu fas fa-shopping-bag"></i></a>
+                            <a><i class="hover-menu fas fa-heart"></i></a>
+                            <a><i class="hover-menu fas fa-globe"></i></a>
+                        </div>
+
+                        <div class="icon-box mobile-icon-box">
+                            <a><i class="fas fa-caret-square-down hover-menu"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="page" id="main-page">
+        <!-- sld=wrapper -->
+        <div class="sld-wrapper">
+
+            <div class="sld-box">
+                
+                <h2 class="owl-carousel owl-theme">
+                    <div class="item">
+                        <iframe class="video" width="100%" height="400px" src="https://www.youtube.com/embed/bjGN8JWIo30" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    
+                    <div class="item">
+                        <iframe class="video" width="100%" height="400px" src="https://www.youtube.com/embed/G0kSQ_-JdKk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+
+                    <div class="item">
+                        <iframe class="video" width="100%" height="400px" src="https://www.youtube.com/embed/tY8kRGlK0XM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+
+                    <div class="item">
+                        <iframe class="video" width="100%" height="400px" src="https://www.youtube.com/embed/bjGN8JWIo30" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    
+                    <div class="item">
+                        <iframe class="video" width="100%" height="400px" src="https://www.youtube.com/embed/G0kSQ_-JdKk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+
+                </h2> 
+
+                <div class="btn-box">
+                    <a>VIDEO MORE</a>
+                    <a class="active">SHOPPING</a>
+                </div>
+            </div>
+        </div>
+        <!-- //sld=wrapper -->
+
+
+        <!-- item-wrapper -->
+        <div class="item-wrapper">
+            <div class="row">
+
+                <div class="imx">
+                    <h3>PRODUCT</h3>
+                    <h4>이케아만의 인테리어를 경험해보세요.</h4>
+                </div>
+
+                <div class="imx-harf">
+
+                    <div class="clear">
+
+                        <div class="fl w25">
+                            <div class="imx-harf">
+                                <div class="bg-box" style="background-image:url('img/pro1.jpeg');">
+
+                                    <p>ㅊㅣㅁ실 </p>
+
+                                    <div class="hidden-box">
+                                        <div class="imx-harf">
+
+                                            <div class="clear">
+
+                                                <div class="fl w33">
+                                                    <div class="item"></div>
+                                                </div>
+                                                
+                                                <div class="fl w33">
+                                                    <div class="item"></div>
+                                                </div>
+
+                                                <div class="fl w33">
+                                                    <div class="item"></div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="fl w25">
+                            <div class="imx-harf">
+                                <div class="bg-box"style="background-image:url('img/pro2.jpeg');  ">
+
+                                    <p>title</p>
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="fl w25">
+                            <div class="imx-harf">
+                                <div class="bg-box"style="background-image:url('img/pro3.jpeg'); "">
+
+                                    <p>title</p>
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="fl w25">
+                            <div class="imx-harf">
+                                <div class="bg-box" style="background-image:url('img/pro4.jpg');">
+
+                                    <p>title</p>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <div class="clear mobile-box">
+
+                        <div class="fl w25">
+                            <div class="imx-harf">
+                                <div class="bg-box" style="background-image:url('img/pro5.jpeg');"> 
+
+                                    <p>title</p>
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="fl w25">
+                            <div class="imx-harf">
+                                <div class="bg-box" style="background-image:url('img/pro6.jpeg');">
+
+                                    <p>title</p>
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="fl w25">
+                            <div class="imx-harf">
+                                <div class="bg-box" style="background-image:url('img/pro7.jpeg');">
+
+                                    <p>title</p>
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="fl w25">
+                            <div class="imx-harf">
+                                <div class="bg-box" style="background-image:url('img/pro8.jpeg');">
+
+                                    <p>title</p>
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="imx">
+
+                    <div class="btn-box">
+                        <a>MORE</a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <!-- //item-wrapper -->
+
+        <!-- banner-wrapper -->
+        <div class="banner-wrapper">
+            <div class="row">
+                <div class="imx">
+
+                    <div class="clear">
+                        <div class="fl w50">
+                            <img src="img/icon-logo.svg" alt="">
+                        </div>
+
+                        <div class="fr w50">
+                            <h5>IKEA LOCATION</h5>
+                            <p>
+                                플래닝 스튜디오에서는 1:1 무료상담을 <br>
+                                통해 편리하게 가구 플래닝 상담을 받고 <br>
+                                원하는 날짜에 배송과 조립서비스까지 한번에 신청할 수 있습니다.<br>
+                            </p>
+                            <a>MORE</a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <!-- banner-wrapper -->
+
+        <!-- pinter -->
+
+        <div class="box-wrapper">
+            <div class="row">
+                <div class="imx-harf">
+                                        
+                    <div class="over-box">
+
+                        <div class="bg-box"></div>
+                        <a class="more-btn">MORE</a>
+
+                        <div class="grid">
+                            <div class="grid-item">
+                                <div class="item">
+                                    <img src="img/idea1.jpeg" alt="">
+                                    <div class="text-box">
+                                        <div class="date">2021.02.22</div>
+                                        <div class="text-title">활용도 높은 이케아 칼릭스</div>
+                                        <div class="hash-box">
+                                            <a>#침실</a>
+                                            <a>#이불</a>
+                                            <a>#화장대</a>
+                                            <a>#의자</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="grid-item">
+                                <div class="item active">
+                                    <img class="active" src="img/idea-logo.png" alt="">
+                                </div>
+                            </div>
+    
+                            <div class="grid-item">
+                                <div class="item">
+                                    <img src="img/idea3.jpeg" alt="">
+                                    <div class="text-box">
+                                        <div class="date">2021.02.22</div>
+                                        <div class="text-title">이케아와x레고 콜라보레이션</div>
+                                        <div class="hash-box">
+                                            <a>#레고</a>
+                                            <a>#어린이</a>
+                                            <a>#어린이방</a>
+                                            <a>#콜라보레이션</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    
+                            <div class="grid-item">
+                                <div class="item">
+                                    <img src="img/idea2.jpeg" alt="">
+                                    <div class="text-box">
+                                        <div class="date">2021.02.22</div>
+                                        <div class="text-title">선반을 활용한 아이디어</div>
+                                        <div class="hash-box">
+                                            <a>#선반</a>
+                                            <a>#수납공간</a>
+                                            <a>#옷장</a>
+                                            <a>#책상</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="grid-item">
+                                <div class="item">
+                                    <img src="img/idea5.jpeg" alt="">
+                                    <div class="text-box">
+                                        <div class="date">2021.02.22</div>
+                                        <div class="text-title">이쁜 주방 꾸미기 By IKEA</div>
+                                        <div class="hash-box">
+                                            <a>#주방</a>
+                                            <a>#식탁</a>
+                                            <a>#주방꾸미기</a>
+                                            <a>#IKEA Style</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="grid-item">                    
+                                <div class="item">  
+                                    <img src="img/idea4.jpeg" alt="">
+                                    <div class="text-box">
+                                        <div class="date">2021.02.22</div>
+                                        <div class="text-title">이케아만의 독창적인 소품</div>
+                                        <div class="hash-box">
+                                            <a>#소품</a>
+                                            <a>#소품 활용</a>
+                                            <a>#거실꾸미기</a>
+                                            <a>#인테리어</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="grid-item">
+                                <div class="item">
+                                    <img src="img/idea1.jpeg" alt="">
+                                    <div class="text-box">
+                                        <div class="date">2021.02.22</div>
+                                        <div class="text-title">활용도 높은 이케아 칼릭스</div>
+                                        <div class="hash-box">
+                                            <a>#침실</a>
+                                            <a>#이불</a>
+                                            <a>#화장대</a>
+                                            <a>#의자</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="grid-item">
+                                <div class="item">
+                                    <img src="img/idea2.jpeg" alt="">
+                                    <div class="text-box">
+                                        <div class="date">2021.02.22</div>
+                                        <div class="text-title">활용도 높은 이케아 칼릭스</div>
+                                        <div class="hash-box">
+                                            <a>#침실</a>
+                                            <a>#이불</a>
+                                            <a>#화장대</a>
+                                            <a>#의자</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    
+                            <div class="grid-item">
+                                <div class="item">
+                                    <img src="img/idea3.jpeg" alt="">
+                                    <div class="text-box">
+                                        <div class="date">2021.02.22</div>
+                                        <div class="text-title">활용도 높은 이케아 칼릭스</div>
+                                        <div class="hash-box">
+                                            <a>#침실</a>
+                                            <a>#이불</a>
+                                            <a>#화장대</a>
+                                            <a>#의자</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="grid-item">
+                                <div class="item">
+                                    <img src="img/idea4.jpeg" alt="">
+                                    <div class="text-box">
+                                        <div class="date">2021.02.22</div>
+                                        <div class="text-title">활용도 높은 이케아 칼릭스</div>
+                                        <div class="hash-box">
+                                            <a>#침실</a>
+                                            <a>#이불</a>
+                                            <a>#화장대</a>
+                                            <a>#의자</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="grid-item">                    
+                                <div class="item">  
+                                    <img src="img/idea5.jpeg" alt="">
+                                    <div class="text-box">
+                                        <div class="date">2021.02.22</div>
+                                        <div class="text-title">활용도 높은 이케아 칼릭스</div>
+                                        <div class="hash-box">
+                                            <a>#침실</a>
+                                            <a>#이불</a>
+                                            <a>#화장대</a>
+                                            <a>#의자</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>    
+        </div>
+
+        <!-- event -->
+        <div class="event-wrapper">
+            <div class="clear">
+                <div class="fl w33">
+
+                    <div class="text-box">
+                        <p>Event</p>
+                        <span>
+                            5월 27일 오전 10시! 설레이는 봄의 마지막 할인 15%<br>
+                            홈 아이디어를 라이브로 만나 보세요!!
+                        </span>
+                        <a>MORE</a>
+                    </div>
+
+
+                </div>
+
+                <div class="fl w33">
+
+                    <div class="text-box">
+                        <p>Delivery</p>
+                        <span>
+                            편리한 배송 옵션을 살펴보세요.
+                        </span>
+                        <a>MORE</a>
+                    </div>
+
+                </div>
+
+                <div class="fl w33">
+
+                    <div class="text-box">
+                        <p>IKEA New</p>
+                        <span>
+                            이케아의 신상품을 만나보세요.
+                        </span>
+                        <a>MORE</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- event -->
+        <!-- footer -->
+        <div id="footer-wrapper">
+            <div class="row">
+                <div class="imx">
+
+                    <div class="clear">
+                        <div class="fl">
+
+                            <h5>IKEA Family</h5>
+                            <p>
+                                지금 IKEA Family에 무료로 가입하고<br>
+                                다양한 멤버 전용 혜택을 누리세요.
+                            </p>
+                            <a>MORE</a>
+
+                        </div>
+                        <div class="fr">
+
+                            <ul>
+                                <li><a>고객문의</a></li>
+                                <li><a>쇼핑하기</a></li>
+                                <li><a>서비스</a></li>
+                                <li><a>IKEA 이야기</a></li>
+                            </ul>
+
+                            <div class="icon-box">
+                                <a><i class="fab fa-facebook-square"></i></a>
+                                <a><i class="fab fa-instagram-square"></i></a>
+                                <a><i class="fab fa-youtube-square"></i></a>
+                            </div>
+
+                            <em>© Inter IKEA Systems B.V 1999-2021</em>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- footer -->
+    </div>
+
+</body>
+</html>
