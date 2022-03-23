@@ -7,7 +7,26 @@
    <link rel="stylesheet" href="css/reset.css"/>
    <title>tagheuer</title>
    <style>
+      *{margin:0; padding:0;}
+      li{list-style:none;}
+      a:link, a:focus{text-decoration:none; color:#000;}
+
       h2{position:absolute; width:1px; height:1px; left:-9999px; line-height:1px; overflow:hidden;}
+      #container{width:100%}
+
+   /* ####### visual ####### */
+      #visual{width:100%; height:100vh; overflow:hidden; position:relative;}
+
+      #video{width:100%; height:100%;}
+      #video video{width:100%;}
+
+      #descArea{width:100%; position:absolute; left:0; top:0;}
+      #descArea .img_area{width:50%; float:left;}
+      #descArea .img_area img{width:100%;}
+      #descArea .text_area{width:50%; float:left;}
+      
+      
+
    </style>
 </head>
 <body>
@@ -18,25 +37,41 @@
       <!-- header -->
       <div id="container">
          <section id="visual">
-            <h2>Visual Area</h2>
-            <div class="bg">
-               <img src="" alt=""/>
+            <div id="video">
+               <p>
+                  <video controls>
+                     <source src="img/video/DM_20220323190315_001.mp4"/>
+                  </video>
+               </p>
             </div>
-            <div class="titArea">
-               <div class="title">
-                  <h3>COLLECTION</h3>
-                  <h4>TAG HEUER CONNECTED CALIBRE E3</h4>
-                  <p class="desc">MAKE EVERYDAY A NEW PERFORMANCE</p>
-                  <p class="btn">
-                     <a href="#" title="BROWS_THE_COLLECTION">BROWS THE COLLECTION</a>
-                  </p>
+            <div id="descArea">
+               <div class="inner">
+                  <div class="img_arae">
+                     <p>
+                        <img src="img/sub3/watch-iphone.png" alt="whach_iphone">
+                     </p>
+                  </div>
+                  <div class="text_area">
+                     <h3>3D COURSES, STATS, INDEX: DISCOVER</h3>
+                     <h4>TAG HEUER GOLF</h4>
+                     <p>
+                        The ultimate app and smartwatch for all golfers. Track and improve your game with the
+                        TAG Heuer Golf app from your smartphone or directly on your Connected watch Golf Edition.
+                     </p>
+                     <div class="store">
+                        <p>
+                           <img src="img/sub3/download-ios.png" alt="ios">
+                        </p>
+                        <p>
+                           <img src="img/sub3/download-android.png" alt="android">
+                        </p>
+                     </div>
+                  </div>
                </div>
             </div>
          </section>
          <!-- visual -->
-         <section id="">
-            
-         </section>
+         
       </div>
       <!-- container -->
       <footer id="footer">

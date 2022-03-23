@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <style>
+      *{margin:0; padding:0;}
+      div {width:100%; background-color:rgba(0,0,0,.3); overflow: hidden;}
+      ul{width:1280px; height:100vh; margin:0 auto; background-color:#fa0; position:relative;}
+      .item {
+            width:100%;
+            height:300px;
+            overflow: hidden;
+            display: block;
+            position:absolute;
+            top:50%;
+            left:0;
+            transform:translatey(-50%);
+            animation: moveSlideshow 2s ease-in-out infinite; 
+            animation: down 2s ease-in-out infinite; 
+         }
+
+         @keyframes moveSlideshow {
+            100% { 
+               top:48%;
+            }
+         }
+         @keyframes down {
+            50% { 
+               top:49%;
+            }
+         }
+
+   </style>
+</head>
+<body>
+   <div>
+      <ul>
+         <li class="item" style=" background-image: url(https://t1.daumcdn.net/cfile/tistory/994C47365B166C7303);"></li>
+         <!-- <li class="item" style="background-image: url(https://t1.daumcdn.net/cfile/tistory/990C04505B166C7319);"></li>
+         <li class="item" style="background-image: url(https://t1.daumcdn.net/cfile/tistory/994C47365B166C7303);"></li> -->
+      </ul>  
+   </div>
+</body>
+</html>
