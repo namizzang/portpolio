@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <style>
+      #btn{width:200px; height:200px; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); background-color:#ff0; text-align:center; line-height:200px; font-size:28px; cursor:pointer;}
+   </style>
+</head>
+<body>
+   <p id="btn">
+      button
+   </p>
+   <script type="">
+      // var btn = $document.getElementsByClassName('btn');
+      // window.onload = funcition(){
+      //    document.getElementsByClassName('btn').onclick = function(){
+      //       this.style.color = 'red';
+      //    }
+      // }
+      window.onload = function() { 
+         document.getElementById('btn').onclick = function() 
+         { this.style.background = 'red'; } 
+      };
+
+   </script>
+</body>
+</html>

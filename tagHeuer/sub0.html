@@ -101,21 +101,15 @@
    /* ######## collectionCont ######## */
       #collectionCont{width:100%;}
       #collectionCont ul{width:100%;}
-      #collectionCont li{width:100%; height:100vh; text-align:center; color:#fff; position:relative;}
-      #collectionCont .desc_area{width:320px; position:absolute;}
-      /* 
-         desc_area 안에 font-size 작업 / 간격 조정
-      */
+      #collectionCont li{width:100%; height:700px; text-align:center; color:#fff; position:relative;  background-color:#000;}
+      #collectionCont .video_area{width:100%; height:100%;}
+      #collectionCont .video_area video{width:100%;}
+
+      #collectionCont li .inner{position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); }
+      #collectionCont .desc_area{width:320px; position:absolute; }
       #collectionCont .desc_area h2{font-size:10px;}
       #collectionCont .desc_area h3{font-size:24px; padding-bottom:10px;}
       #collectionCont .desc_area .text p{font-size:14px; padding-bottom:40px;}
-
-      /* 
-         .desc_area .btn_area 너비:250px 준 후 가운데 조정 float:left, right로 양쪽 버튼 간격 조정
-      */
-      /* 
-         btn 너비 / 색상 / border 설정
-      */
       #collectionCont .desc_area .btn_area{width:250px; margin:0 auto; overflow:hidden;}
       #collectionCont .desc_area .btn_area p{width:110px; height:50px; line-height:50px; font-size:12px; border-radius:20px; background-color:#DD0A04; float:left;}
       #collectionCont .desc_area .btn_area p a{display:block; width:100%; height:100%;}
@@ -123,21 +117,11 @@
       #collectionCont .desc_area .btn_area p a{color:#fff;}
 
       /* ######## collectionCont li별 background-image 변경 desc_area 위치 변경 ######## */
-      #collectionCont .collection_cont0{background-color:#000;}
-      #collectionCont .collection_cont0 .desc_area{left:50%; bottom:0; transform:translateX(-50%);}
-      #collectionCont .collection_cont1{background-image:url('img/sub0/aquaracer_landscape.jpg'); background-size:100%;}
-      #collectionCont .collection_cont1 .desc_area{left:10px; top:50%; transform:translateY(-50%);}
-      #collectionCont .collection_cont2{background-image:url('img/sub0/formula1_landscape_2.jpg'); background-size:100%;}
-      #collectionCont .collection_cont2 .desc_area{right:10px; top:50%; transform:translateY(-50%);}
-      #collectionCont .collection_cont3{background-image:url('img/sub0/04.Autavia-Desktop.jpg'); background-size:100%;}
-      #collectionCont .collection_cont3 .desc_area{left:10px; top:50%; transform:translateY(-50%);}
-      #collectionCont .collection_cont4{background-image:url('img/sub0/06.Link-Desktop.jpg'); background-size:100%;}
-      #collectionCont .collection_cont4 .desc_area{right:10px; top:50%; transform:translateY(-50%);}
-      #collectionCont .collection_cont5{background-image:url('img/sub0/carrera_landscape.jpg'); background-size:100%;}
-      #collectionCont .collection_cont5 .desc_area{left:10px; top:50%; transform:translateY(-50%);}
+      #collectionCont .collection_cont0 .desc_area{left:50%; bottom:60px; transform:translateX(-50%);}
+      #collectionCont li .l_desc{left:10px; top:50%; transform:translateY(-50%);}
+      #collectionCont li .r_desc{right:10px; top:50%; transform:translateY(-50%);}
 
-      
-   /* ######## footer ######## */
+      /* ######## footer ######## */
 	</style>
 </head>
 
@@ -341,6 +325,11 @@
                <ul>
 
                   <li class="collection_cont0">
+                     <div class="video_area">
+                        <video autoplay muted>
+                           <source src="img/video/aquaracer_respon.mp4">
+                        </video>
+                     </div>
                      <div class="inner">
                         <div class="desc_area">
                            <div class="text">
@@ -363,8 +352,13 @@
                      </div>
                   </li>
                   <li class="collection_cont1">
+                     <div class="video_area">
+                        <video autoplay muted>
+                           <source src="img/video/aquaracer_respon.mp4">
+                        </video>
+                     </div>
                      <div class="inner">
-                        <div class="desc_area">
+                        <div class="desc_area l_desc">
                            <div class="text">
                               <h2>TAG HEUER</h2>
                               <h3>AQUARACER</h3>
@@ -385,8 +379,9 @@
                      </div>
                   </li>
                   <li class="collection_cont2">
+                     
                      <div class="inner">
-                        <div class="desc_area">
+                        <div class="desc_area r_desc">
                            <div class="text">
                               <h2>TAG HEUER</h2>
                               <h3>FORMULA 1</h3>
@@ -409,7 +404,7 @@
                   </li>
                   <li class="collection_cont3">
                      <div class="inner">
-                        <div class="desc_area">
+                        <div class="desc_area l_desc">
                            <div class="text">
                               <h2>TAG HEUER</h2>
                               <h3>AUTAVIA</h3>
@@ -431,7 +426,7 @@
                   </li>
                   <li class="collection_cont4">
                      <div class="inner">
-                        <div class="desc_area">
+                        <div class="desc_area r_desc">
                            <div class="text">
                               <h2>TAG HEUER</h2>
                               <h3>Link</h3>
@@ -453,7 +448,7 @@
                   </li>
                   <li class="collection_cont5">
                      <div class="inner">
-                        <div class="desc_area">
+                        <div class="desc_area l_desc">
                            <div class="text">
                               <h2>TAG HEUER</h2>
                               <h3>CARRERA</h3>

@@ -36,7 +36,6 @@
       #visual .pro_view{width:50%; height:100%; line-height:600px; font-size:28px; text-align:center; color:#fff; background-color:rgba(255,255,255,.3); float:left;}
 
       /* product */
-
       #product{width:50%; height:100%; background-color:rgba(0,0,0,.7);position:absolute; top:0; right:0; border-radius: 30px 0 0 30px;}
       #product:before{content:'<'; display:block; width:18px; height:52px; text-align:center; line-height:52px; color:#fff; position:absolute; top:50%; transform:translateY(-50%); left:-18px; background-color:rgba(0,0,0,.7); border-radius:10px 0 0 10px;}
       #product .product_inner{width:100%; height:100%; }
@@ -46,9 +45,8 @@
 
       #product .product_sel .product_sellec{width:4.2rem; position:absolute; left:10px; bottom:20px;}
       #product .product_sel .product_sellec li{width:100%; padding-bottom:10px;}
-      #product .product_sel .product_sellec a{display:block; width:100%; height:100%;}
+      #product .product_sel .product_sellec a{display:block; width:100%; height:100%; cursor:pointer;}
       #product .product_sel .product_sellec img{width:100%;}
-
       #product .product_sel .img_area{width:100%; height:100%; position:relative;}
       #product .product_sel .img_area p{width:18rem;  position:absolute; right:0; top:50%; transform:translateY(-50%);}
       #product .img_area p img{width:100%;}
@@ -70,7 +68,7 @@
 
       #product .more{width:100%;}
       #product .more p{width:14.3rem; height:40px; line-height:40px; margin:0 auto; text-align:center; transition:.3s ease all;}
-      #product .more p a{display:block; width:100%; height:100%; color:#000; font-size:12px;}
+      #product .more p a{display:block; width:100%; height:100%; color:#000; font-size:12px; font-weight:600;}
       #product .more .cart{background-color:#fff; margin-bottom:10px;}
       #product .more .cart:hover{background-color:#000;}
       #product .more .cart:hover a{color:#fff;}
@@ -89,52 +87,36 @@
       #pro_sel .sellec_btn{width:200px; height:100%; margin:0 auto; line-height:70px;}
       #pro_sel .sellec_btn p{width:100px; text-align:center; float:left;}
       #pro_sel .sellec_btn .sellec_btn1{margin:0;}
-      #pro_sel .sellec_btn a{font-size:16px } 
+      #pro_sel .sellec_btn a{font-size:13px; font-weight:600;} 
       #pro_sel .sellec_btn a:hover{color:#DD0A04;}
+
       #pro_sel .sellection{width:100%; overflow:hidden;}
       #pro_sel ul{width:1110px; height:400px; margin:0 auto;}
-      /* .btn margin-top 이 안 들어가고 ul이 공중에 떠 있음 */
-      
-
-      #pro_sel li{width:350px; height:400px;  margin-right:20px; background-color:#fafafa; float:left;}
-
-      /* pro_sel / li 안에 있는 div a 공통 */
-      #pro_sel li div a{width:100%; height:100%; display:block; }
-
-      #pro_sel li .sel_img{width:100%; height:270px; padding:20px 0 10px; text-align:center;}
+      #pro_sel li{width:350px; height:400px;  margin-right:20px; background-color:#fafafa; float:left; position:relative;}
+      #pro_sel li:hover .sel_img img{transform:scale(1.1); opacity:0;}
+      #pro_sel li:hover .sel_img.active img{transform:scale(1); opacity:1;}
+      #pro_sel li div a{width:100%; height:100%; display:block;}
+      #pro_sel li .sel_img{width:100%; height:270px; padding:20px 0 10px; text-align:center; position:absolute; left:0; top:0; transition:.7s linear all;}
+      #pro_sel li .sel_img.active img{opacity:0; z-index:3; transform:scale(1);}
       #pro_sel li .sel_img a{display:block; width:100%; height:100%; }
-      #pro_sel li .sel_img a img{height:100%;}
-      #pro_sel li.sel_box2 .sel_img img{width:100%;}
-      #pro_sel .sel_text{width:100%; height:100px; font-size:12px; font-weight:600; text-align:center;}
+      #pro_sel li .sel_img a img{height:100%; transition:.3s linear all;}
+      #pro_sel li.sel_box2 .sel_img img{height:100%;}
 
-      /* sel_text span 공통 */
+      #pro_sel .sel_text{width:100%; height:100px; font-size:12px; font-weight:600; text-align:center; position:absolute; left:0; bottom:0;}
       #pro_sel .sel_text span{display:block; padding-bottom:5px;}
       #pro_sel .sel_text .promotion{color:#BF1932;}
-      /* sel_text strong(title) */
       #pro_sel .sel_text .desc{font-size:11px; color:#ccc; padding:5px 0 12px;}
       #pro_sel .sel_text .price{font-size:11px; color:#000; font-weight:300; padding-bottom:15px;}
-
       #pro_sel .sel_btn{width:200px; height:60px; text-align:center; margin:40px auto 0;}
       #pro_sel .sel_btn a{display:block; width:100%; height:100%; line-height:60px; color:#fff; font-size:12px; background-color:#000;}
       #pro_sel .sel_btn a:hover{background-color:#DD0A04;}
 
    /* ############## experience ############### */
       #experience{width:100%;}
-      /* 
-         experience에 있는 상,하 section별로 이미지 분리(하지만, 연결되는 이미지) background-size를 한 곳에만 맞출 시 section 분리 현상
-         해결 :: 100% 100% 를 줘서 해결
-      */
       #experience .first_comp{width:100%; height:100vh; background-image:url('img/visual0.webp'); background-size:100%; background-attachment:fixed; background-repeat:no-repeat; background-position:bottom; }
-      /* experience inner 에 공통 relative 사용*/
       #experience .inner{position:relative;}
-      /* 
-         각 영역에 position 적용
-
-         float 위치 적용 (공통 영역 간소화 고민)(수정)
-         :: float을 뺴고 desc 영역을 position으로 위치 설정
-      */
       #experience .first_comp .desc{width:300px; height:300px; position:absolute; top:50%; right:0; transform:translateY(-50%); color:#fff;}
-      /* 공통 영역인 desc 영역 */
+
       #experience .desc h2{font-size:12px;}
       #experience .desc h3{padding-bottom:8px;}
       #experience .desc .text{padding-bottom:18px;}
@@ -142,10 +124,6 @@
       #experience .desc .shop_btn span{display:block; width:50%; float:left; }
       #experience .desc .shop_btn a{color:#DD0A04; font-size:10px;}
       #experience .second_comp{width:100%; height:98vh; background-image:url('img/visual1.jpeg');background-size:100%; background-attachment:fixed; background-repeat:no-repeat; background-position:top ;}
-
-      /* 
-         각 영역에 position 적용 / float 위치 적용 (간소화 고민)
-      */
       #experience .second_comp .desc_area{width:100%; height:300px; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);}
       #experience .second_comp .desc{width:300px; height:300px; position:absolute; top:50%; left:0; transform:translateY(-50%);color:#fff;}
 
@@ -153,11 +131,6 @@
       #tapContent{width:100%; height:600px;}
       /* ######## collectionBan ######## */
       #collectionBan{width:100%; background-color:#efefef;}
-      /* 
-         banner_area 너비 : 580px 
-         banner_text 글자 띄어쓰기
-         banner_area 높이 : 210px 
-      */
       #collectionBan .banner_area{width:580px; height:380px; margin:0 auto; text-align:center;}
       #collectionBan .banner_area h3{font-size:24px; padding:80px 0 20px;}
       #collectionBan .banner_area .banner_text{width:100%; font-size:13px; color:#aaa; padding-bottom:20px;}
@@ -254,28 +227,28 @@
                            <li>
                               <a href="#" title="prodect_sellec0">
                                  <span>
-                                    <img src="img/product_sellec0.jpg" alt="prodect_sellec0">
+                                    <img src="img/thumbnail0.png" alt="prodect_sellec0">
                                  </span>
                               </a>
                            </li>
                            <li>
                               <a href="#" title="prodect_sellec1">
                                  <span>
-                                    <img src="img/product_sellec1.jpg" alt="prodect_sellec1">
+                                    <img src="img/thumbnail1.png" alt="prodect_sellec1">
                                  </span>
                               </a>
                            </li>
                            <li>
                               <a href="#" title="prodect_sellec2">
                                  <span>
-                                    <img src="img/product_sellec2.jpg" alt="prodect_sellec2">
+                                    <img src="img/thumbnail2.png" alt="prodect_sellec2">
                                  </span>
                               </a>
                            </li>
                            <li>
                               <a href="#" title="prodect_sellec3">
                                  <span>
-                                    <img src="img/product_sellec3.jpg" alt="prodect_sellec3">
+                                    <img src="img/thumbnail3.png" alt="prodect_sellec3">
                                  </span>
                               </a>
                            </li>
@@ -321,18 +294,18 @@
                      </div>
                      <div class="ader">
                         <span>
-                           <a href="#" title="">
-                              <img src="img/sellec0.jpg" alt="product0">
+                           <a href="#" title="product0">
+                              <img src="img/option_image0.png" alt="product0"/>
                            </a>
                         </span>
                         <span>
-                           <a href="#" title="">
-                              <img src="img/sellec1.jpg" alt="product1">
+                           <a href="#" title="product1">
+                              <img src="img/option_image1.png" alt="product1"/>
                            </a>
                         </span>
                         <span>
-                           <a href="#" title="">
-                              <img src="img/sellec2.jpg" alt="product2">
+                           <a href="#" title="product2">
+                              <img src="img/option_image2.png" alt="product2"/>
                            </a>
                         </span>
                      </div>
@@ -385,6 +358,11 @@
                            <img src="img/pro4.PNG" alt="sel_img0">
                         </a>
                      </div>
+                     <div class="sel_img active">
+                        <a href="#" title="sellection">
+                           <img src="img/pro4_0.PNG" alt="sel_img0">
+                        </a>
+                     </div>
                      <div class="sel_text">
                         <a href="#" title="sellection">
                            <span class="promotion">LIMITED QUANTITY</span>
@@ -400,6 +378,11 @@
                            <img src="img/pro5.PNG" alt="sel_img1">
                         </a>
                      </div>
+                     <div class="sel_img active">
+                        <a href="#" title="sellection">
+                           <img src="img/pro5_0.PNG" alt="sel_img1">
+                        </a>
+                     </div>
                      <div class="sel_text">
                         <a href="#" title="sellection">
                            <span class="promotion">LIMITED QUANTITY</span>
@@ -411,6 +394,11 @@
                   </li>
                   <li class="sel_box2">
                      <div class="sel_img">
+                        <a href="#" title="sellection">
+                           <img src="img/pro6.PNG" alt="sel_img2">
+                        </a>
+                     </div>
+                     <div class="sel_img active">
                         <a href="#" title="sellection">
                            <img src="img/pro6_0.PNG" alt="sel_img2">
                         </a>
@@ -556,18 +544,13 @@
          </div>
          <!-- pro_col -->
 
-         
-
-         <!-- <div id="sub_visual">
-         </div> -->
-         <!-- sub_visual -->
-
          <div id="banner">
             <p>
                <img src="img/banner.png" alt="tagheuer">
             </p>
          </div>
          <!-- banner -->
+         
       </div>
       <!-- container  -->
       <div id="footer">
@@ -645,5 +628,11 @@
       </div>
       <!-- footer -->
    </div>
+   <!-- <script>
+      window.onload = function() { 
+         document.getElementById('product').onclick = function() 
+         { this.style.background = 'red'; } 
+      };
+   </script> -->
 </body>
 </html>
