@@ -1,10 +1,12 @@
 @charset "utf-8";
 *{margin:0; padding:0;}
+body{margin:0; padding:0; font-size:14px; font-family:nanum-gothic;}
 li{list-style-type:none;}
-body{font-size:14px;}
-a:link, a:visited{text-decoration:none; color:#000;}
+header,nav,section,footer,address{display:block}
+a:link, a:visited{text-decoration:none; color:#000; cursor:pointer;}
 a:focus{color:#DD0A04;}
+input[type="button"], input[type="submit"], input[type="reset"], button{cursor:pointer;}
 em,i{font-style:normal;}
-.inner{width:1280px; height:100%; margin:0 auto;}
+.inner{width:80%; height:100%; margin:0 auto;}
 .clear{content:''; display:block; clear:both;}
 img{border:0;}

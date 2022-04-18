@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <meta charset="UTF-8"/>
+   <meta charset="utf-8"/>
    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-   <meta name="viewport" content="width=device-width, initial-scale=1.0" minimum="1.0"/>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum=1.0"/>
    <link rel="stylesheet" type="text/css" href="css/reset.css"/>
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
    <title>TAGHeuer</title>
-   
    <style>
    /* ############## wrap ############### */
       #wrap{width:100%; position:relative; overflow:hidden;}
       
    /* ######### header ######## */
-      #header{width:100%; position:fixed; left:0; top:0; z-index:1111;}
+      #header{width:100%; position:fixed; left:0; top:0; z-index:9999;}
       #header:after{content:''; display:block; clear:both;}
 
       #headerInfo{width:100%; height:24px; line-height:24px; border-bottom:1px solid #333; background-color:#000;}
@@ -33,49 +31,9 @@
       #nav h1{width:40px; padding-left:8px; position:absolute; left:0; top:50%; transform:translateY(-50%);}
       #nav h1 a{display:block; width:100%; height:100%;}
       #nav h1 img{width:100%;}
-
-      #nav ul{height:100%; box-sizing:border-box; float:left;}
-      #nav .gnb{width:60%; line-height:70px; padding-left:60px;}
-      #nav .gnb li{display:inline; font-size:12px; color:#fff; padding:0 14px;}
-
-      #nav .icon_area{width:30%; text-align:right; line-height:70px;}
-      #nav .icon_area:after{content:''; display:block; clear:both}
-      #nav .icon_area li{display:inline-block; margin-left:20px;}
-      /* #nav .icon_area form{width:100%;}
-      #nav .icon_area form input{width:80px; height:25px; border:none; border-radius:5px; background-color:rgba(255,255,255,.7); transition:.3s linear all;}
-      #nav .icon_area form input:hover{width:200px;} */
-      #nav .icon_area form button{font-size:1.4rem; vertical-align: middle; border:none; background-color:#000; color:#fff;}
-      #nav .icon_area a i{font-size:1.4rem; vertical-align: middle; color:#fff; font-weight:600; transition:all .3s ease;}
-      #nav .icon_area a i:hover{color:#DD0A04;}
-
-      #nav .m_hamburger{width:70%; height:100%; float:left; line-height:70px; display:none; position:relative;}
-      #nav .m_hamburger a{display:block; width:25px; height:20px; position:absolute; left:0; top:50%; transform:translatey(-50%); z-index:9999;}
-      #nav .m_hamburger span{display:block; width:100%; height:3px; border-radius:10px; background-color:#fff; position:absolute;}
-      #nav .m_hamburger .bar1{left:0; top:0;}
-      #nav .m_hamburger .bar2{left:0; top:50%; transform:translatey(-50%);}
-      #nav .m_hamburger .bar3{left:0; bottom:0%;}
-
-   /* ############## mobile_nav ############### */
-      #mobile_nav{width:300px; height:100vh; position:fixed; left:-300px; top:0; background-color:#fff; z-index:2222;}
-      /* ############## top_nav ############### */
-      #topNav{width:100%;}
-      #topNav .nav_logo{width:30px; height:30px; margin:20px auto;}
-      #topNav .nav_logo a{display:block; width:100%; height:100%;}
-      #topNav .nav_logo a img{width:100%;}
-
-      /* ############## menu_list ############### */
-      #menuList{width:100%;}
-      #menuList li{width:100%;}
-      #menuList li h4{font-size:12px; text-indent:8px; padding-bottom:10px; margin-bottom:10px; border-bottom:1px solid #aaa; box-sizing:border-box; cursor: pointer;}
-      #menuList li ul{display: none;}
-      #menuList li ul li{padding-bottom:10px;}
-
-      #menuList .service{font-size:12px; text-indent:8px;}
-      #menuList .service p{padding-bottom:8px;}
-
-      #menuList .lang{width:100%; position:absolute; left:0; bottom:0;}
-      #menuList .lang p{width:50%; float:left; font-size:11px; text-align:center; padding:10px 0; box-sizing:border-box; border-top:1px solid #aaa; border-right:1px solid #aaa;}
-      #menuList .lang p:last-child{border-right:0;}
+      #nav ul{width:1220px; height:100%; line-height:70px; padding-left:60px; float:left;}
+      #nav li{display:inline; font-size:12px; color:#fff; padding:0 24px;}
+      #nav li a{color:#fff; font-weight:600;}
       
    /* ############## container ############### */
       #container{width:100%; }
@@ -97,6 +55,7 @@
       #product .product_inner{width:100%; height:100%; }
       #product .product_inner:after{content:''; display:block; clear:both;}
       #product .product_sel{width:45%; height:100%; float:left;}
+      
 
       #product .product_sel .product_sellec{width:4.2rem; position:absolute; left:10px; bottom:20px;}
       #product .product_sel .product_sellec li{width:100%; padding-bottom:10px;}
@@ -237,38 +196,43 @@
       #pushCollection:after{content:''; display:block; clear:both;}
       #pushCollection div{width:50%; float:left; position:relative;}
       #pushCollection img{width:100%;}
-      #pushCollection a{display:block; width:100%; text-align:center;  transition:all .4s linear; color:#fff; position:absolute; left:0; bottom:0; background:linear-gradient(to top,rgba(0,0,0,.7), rgba(0,0,0,0));}
+      #pushCollection a{display:block; width:100%; text-align:center;  transition:all .4s linear; color:#fff; position:absolute; left:0; bottom:30px; background:linear-gradient(to top,rgba(0,0,0,.7), rgba(0,0,0,0));}
       #pushCollection a:hover{padding-top:80px;}
       #pushCollection a span{display:block; padding-bottom:8px; font-size:12px;}
-      #pushCollection a strong{display:block; padding-bottom:40px; font-size:28px;}
+      #pushCollection a strong{display:block; padding-bottom:20px; font-size:28px;}
       #pushCollection a .btn{font-size:13px; padding-bottom:0;}
 
 
    /* ############## pro_col ############### */
       #pro_col{width:100%; text-align:center; background-color:#000;}
-      #pro_col h2{font-size:18px; color:#fff; padding-top:20px;}
+      #pro_col h2{font-size:18px; color:#fff;}
       #pro_col .sub_title{font-size:12px; color:#ccc;}
       #pro_col .collection{width:100%; }
       #pro_col .collection:after{content:''; display:block; clear:both;}
       #pro_col .collection ul{width:80%; overflow:hidden; margin:0 auto; padding:30px 0;}
-      #pro_col .collection li{width:28%; float:left; margin-right:2%; position:relative; transform:translateY(20%);}
-      #pro_col .collection li.active{width:40%; transform:translateY(0);}
+      #pro_col .collection li{width:28%; float:left; margin-right:2%; position:relative; transform:translatey(20%);}
+      #pro_col .collection li.active{width:40%; transform:translatey(0);}
       #pro_col .collection li:last-child{margin:0;}
       #pro_col .collection li img{width:100%;}
       #pro_col .collection a{display:block; width:100%; height:100%; color:#fff; position:absolute; left:0; top:0;}
       #pro_col a .desc{display:block; width:100%; position:absolute; left:0; bottom:0; padding-bottom:40px;}
-      #pro_col a em{font-size:11px; font-weight:600;}
+      #pro_col a em{font-size:11px;}
       #pro_col a strong{display:block; font-size:20px; line-height:30px;}
+      #pro_col a .btn{font-size:11px;}
+      #pro_col a .btn:hover{text-decoration:underline;}
+
+   /* ############## sub_visual ############ */
+      #sub_visual{width:100%; height:600px; background-image:url('img/main_visual.JPEG'); background-repeat:no-repeat; background-size:cover; background-position:top;}
 
    /* ############## banner ############### */
+      
       #banner{width:100%; height:50px; overflow:hidden; background-color:#000;}
       #banner p{width:200px; height:100%; margin:10px auto 0;}
       #banner p img{width:100%;}
 
    /* ############## footer ############### */
-      #footer{width:100%; background-color:#000; padding:80px 0 0;}
+      #footer{width:100%; background-color:#000; padding:80px 0;}
       #footer:after{content:''; display:block; clear:both;}
-      #footer .inner:after{content:''; display:block; clear:both;}
       #footer .inner div{width:20%; float:left; color:#fff;}
       #footer ul{width:100%;}
       #footer h3{font-size:14px; color:#fff; padding-bottom:20px;}
@@ -278,33 +242,20 @@
       #footer li a:after{content:''; width:0; height:1px; position:absolute; left:50%; bottom:-5px; transform:translateX(-50%); background-color:#fff; transition:.5s ease all;}
       #footer li a:hover:after{width:100%;}
 
-      #footer address{font-size:.89rem; text-align:center; color:#fff; font-style:normal; padding:20px 0;}
-
    /* media */
    @media all and (min-width:1025px) and (max-width:1330px){
       /* ############## visual ############### */
-         
-         #visual .bg_doc{width:100%;}
          /* product */
          #product{width:100%; height:80%; background-color:rgba(0,0,0,.7); position:absolute; bottom:0; left:0; border-radius: 30px 30px 0 0; }
          #product:before{content:'<'; display:block; width:18px; height:52px; text-align:center; line-height:52px; color:#fff; position:absolute; top:-35px;  left:50%; transform:translateX(-50%) rotate(90deg); background-color:rgba(0,0,0,.7); border-radius:10px 0 0 10px; }
          #product .product_desc{width:40%; height:100%; padding:0px 30px; float:left; box-sizing:border-box; position:relative; vertical-align:middle;}
+      
    }
 
    @media all and (min-width:768px) and (max-width:1024px){
-      /* ######### header ######## */
-         #headerInfo{display:none;}
-         
-         #nav h1{width:35px; padding-left:0; position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);}
-         #nav .inner{width:98%;}
-         #nav .gnb{display:none;}
-         #nav .m_hamburger{display:block;}
-
       /* ############## visual ############### */
-         #visual{padding-top:60px;}
          #visual .bg_doc{width:100%; font-size:28px; text-align:center; color:#fff; float:left; position:relative; }
          #visual .bg_doc .vis_title h3{font-size:28px; font-weight:600;}
-         
          /* product */
          #product{display:none;}
          #m_product{display:block; }
@@ -313,20 +264,11 @@
          #pro_sel ul{width:90%; overflow:hidden; margin:0 auto;}
          #pro_sel li{width:48%;  margin-right:2%; background-color:#fafafa; float:left; position:relative; box-sizing:border-box; overflow:hidden;}
          #pro_sel li:last-child{margin:0; display:none;}
+
    }
 
    @media all and (min-width:320px) and (max-width:767px){
-      /* ######### header ######## */
-         #headerInfo{display:none;}
-         
-         #nav h1{width:35px; padding-left:0; position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);}
-         #nav .inner{width:98%;}
-         #nav .gnb{display:none;}
-         #nav .icon_area li{margin-left:5px;}
-         #nav .m_hamburger{display:block;}
       /* ############## visual ############### */
-         #visual{padding-top:60px;}
-         #visual .inner{display:none;}
          #visual .bg_doc{width:100%; font-size:28px; text-align:center; color:#fff; float:left; position:relative; }
          #visual .bg_doc .vis_title h3{font-size:18px; font-weight:600;}
          /* product */
@@ -340,54 +282,40 @@
          #pro_sel li.sel_box2{margin:0; display:none;}
 
       /* ############## experience ############### */
-         #experience .inner{width:90%;}
-         #experience .first_comp .desc{width:100%; text-align:center; padding-top:20%; box-sizing:border-box;}
-         #experience .desc .text{height:65px; padding:0; margin-bottom:8px; font-size:.68rem; overflow:hidden; text-overflow:ellipsis;}
+         #experience .desc{width:300px; height:300px; padding-top:40px; position:absolute; top:50%; right:0; transform:translateY(-50%); color:#fff; transition:all .5s linear;}
 
-      /* ############## collectionBan ############### */
-         #collectionBan .banner_area{width:98%;}
-         #collectionBan .banner_area h3{font-size:14px; padding:40px 0 20px;}
-         #collectionBan .banner_area .banner_text{height:62px; overflow:hidden; padding:0; margin-bottom:18px;}
 
-      /* ############## pushCollection ############ */
+		 #experience .first_comp .desc{text-align:center; height:200px;}
+		 #experience .desc .text{height:75px; overflow:hidden;}
+
+      
+	  /* ############## collectionBan ############### */
+		#collectionBan .banner_area .banner_text{height:52px; overflow:hidden;}
+	  
+	  
+	  /* ############## pushCollection ############ */
          #pushCollection div{width:100%; float:none; position:relative;}
 
+
+
       /* ############## pro_col ############### */
-         #pro_col .inner{width:98%;}
-         #pro_col .sub_title{font-size:11px; color:#ccc; padding-top:8px;}
+         #pro_col .sub_title{font-size:12px; color:#ccc;}
          #pro_col .collection{width:100%; }
          #pro_col .collection ul{width:60%; overflow:hidden; margin:0 auto; padding:30px 0;}
          #pro_col .collection li{width:100%;  float:left; margin-right:2%; position:relative; transform:translateY(0); display:none;}
          #pro_col .collection li.active{width:100%; transform:translateY(0); display:block; }
-         
-         #footer{padding:20px 0 10px;}
-         #footer .inner{width:100%;}
-         #footer .inner div{float:none; width:100%; border-bottom:1px solid #333;}
-         #footer h3{text-align:center; padding-bottom:0; line-height:34px; cursor:pointer;}
+
+		#footer .inner{width:100%;}
+		#footer .inner div{float:none; width:100%; border-bottom:1px solid #333;}
+		#footer h3{text-align:center; padding-bottom:0; line-height:34px;}
 		
-         #footer ul{display:none;}
-         #footer ul li{text-align:center;}
+		 #footer ul{display:none;}
+		 
    }
    </style>
-   <script>
-      $(document).ready(function(){
-
-         $('.m_hamburger a').click(function(){
-            $('#mobile_nav').animate({'left':'0'},300,'linear');
-            $(this).children('span').css({'background-color':'#000'});
-         });
-
-         $('#footer h3').click(function(){
-            $(this).next().slideToggle();
-            $(this).parent().siblings().children('ul').slideUp();
-         });
-
-      });
-   </script>
 </head>
 <body>
    <div id="wrap">
-      
       <header id="header">
          <div id="headerInfo">
             <ul class="l_info">
@@ -453,153 +381,16 @@
                   </li>
                </ul>
                <!-- gnb -->
-               <div class="m_hamburger">
-                  <a href="#" title="hamburger_menu">
-                     <span class="bar1"></span>
-                     <span class="bar2"></span>
-                     <span class="bar3"></span>
-                  </a>
-               </div>
-               <ul class="icon_area">
-
-                  <li>
-                     <form action="#none" method="post">
-                        <!-- <input type="text" id="search" name="search" title="Search" required/> -->
-                        <button type="submit">
-                           <i class="fa fa-search" aria-hidden="true"></i>
-                        </button>
-                     </form>
-                  </li>
-                  <li>
-                     <a href="#none" title="user">
-                        <i class="fa fa-user" aria-hidden="true"></i>
-                     </a>
-                  </li>
-                  <li>
-                     <a href="#none" title="shopping">
-                        <i class="fa fa-shopping-bag" aria-hidden="true"></i>
-                     </a>
-                  </li>
-
-               </ul>
-               <!-- icon_area -->
             </div>
          </nav>
-         <!-- nav -->
-         <div id="mobile_nav">
-         <div id="topNav">
-
-            <div class="nav_logo">
-               <a href="#none" title="navigation_logo">
-                  <img src="img/fa.SVG" alt="fa"/>
-               </a>
-            </div>
-
-         </div>
-         <!-- top_nav -->
-         <ul id="menuList">
-            <li>
-               <h4>TIMEPIECES</h3>
-               <ul>
-                  <li><a href="#none" title="LET US GUIDE YOU">LET US GUIDE YOU</a></li>
-                  <li><a href="#none" title="Our collections">Our collections</a></li>
-                  <li><a href="#none" title="Our watches">Our watches</a></li>
-                  <li><a href="#none" title="160 Years Limited Editions">160 Years Limited Editions</a></li>
-                  <li><a href="#none" title="DISCOVER">DISCOVER</a></li>
-                  <li><a href="#none" title="Novelties">Novelties</a></li>
-                  <li><a href="#none" title="Watches for men">Watches for men</a></li>
-                  <li><a href="#none" title="Watches for women">Watches for women</a></li>
-                  <li><a href="#none" title="Special editions">Special editions</a></li>
-                  <li><a href="#none" title="Accessories">Accessories</a></li>
-                  <li><a href="#none" title="Essentials">Essentials</a></li>
-                  <li><a href="#none" title="Chronograph watches">Chronograph watches</a></li>
-                  <li><a href="#none" title="Classic Watches">Classic Watches</a></li>
-                  <li><a href="#none" title="Sport watches">Sport watches</a></li>
-                  <li><a href="#none" title="Tourbillon watches">Tourbillon watches</a></li>
-                  <li><a href="#none" title="COLLECTIONS">COLLECTIONS</a></li>
-                  <li><a href="#none" title="TAG Heuer Carrera">TAG Heuer Carrera</a></li>
-                  <li><a href="#none" title="TAG Heuer Aquaracer">TAG Heuer Aquaracer</a></li>
-                  <li><a href="#none" title="TAG Heuer Formula 1">TAG Heuer Formula 1</a></li>
-                  <li><a href="#none" title="TAG Heuer Monaco">TAG Heuer Monaco</a></li>
-                  <li><a href="#none" title="TAG Heuer Autavia">TAG Heuer Autavia</a></li>
-                  <li><a href="#none" title="TAG Heuer Link">TAG Heuer Link</a></li>
-               </ul>
-            </li>
-            <li>
-               <h4>SMARTWATCHES</h3>
-               <ul>
-                  <li><a href="#none" title="DISCOVER">DISCOVER</a></li>
-                  <li><a href="#none" title="Customize your smartwatch">Customize your smartwatch</a></li>
-                  <li><a href="#none" title="All TAG Heuer Connected">All TAG Heuer Connected</a></li>
-                  <li><a href="#none" title="All Accessories">All Accessories</a></li>
-                  <li><a href="#none" title="Getting Started">Getting Started</a></li>
-                  <li><a href="#none" title="COLLECTIONS">COLLECTIONS</a></li>
-                  <li><a href="#none" title="Connected Calibre E4">Connected Calibre E4</a></li>
-                  <li><a href="#none" title="Connected Golf Edition">Connected Golf Edition</a></li>
-                  <li><a href="#none" title="Connected Calibre E3">Connected Calibre E3</a></li>
-                  <li><a href="#none" title="APPLICATIONS">APPLICATIONS</a></li>
-                  <li><a href="#none" title="All TAG Heuer Applications">All TAG Heuer Applications</a></li>
-                  <li><a href="#none" title="TAG Heuer Sports">TAG Heuer Sports</a></li>
-                  <li><a href="#none" title="TAG Heuer Golf App">TAG Heuer Golf App</a></li>
-                  <li><a href="#none" title="TAG Heuer Wellness">TAG Heuer Wellness</a></li>
-                  <li><a href="#none" title="TAG Heuer Watchfaces">TAG Heuer Watchfaces</a></li>
-               </ul>
-            </li>
-            <li><h4><a href="#none" title="WATCHES AND WONDERS 2022">WATCHES AND WONDERS 2022</a></h4></li>
-            <li>
-               <h4>TAG HEUER UNIVERSE</h4>
-               <ul>
-                  <li><a href="#none" title="Ambassadors">Ambassadors</a></li>
-                  <li><a href="#none" title="Legends">Legends</a></li>
-                  <li><a href="#none" title="Motorsports">Motorsports</a></li>
-                  <li><a href="#none" title="Tennis">Tennis</a></li>
-                  <li><a href="#none" title="Golf">Golf</a></li>
-                  <li><a href="#none" title="All our partnerships">All our partnerships</a></li>
-                  <li><a href="#none" title="COLLABORATIONS">COLLABORATIONS</a></li>
-                  <li><a href="#none" title="Porsche">Porsche</a></li>
-                  <li><a href="#none" title="Super Mario">Super Mario</a></li>
-                  <li><a href="#none" title="MAISON">MAISON</a></li>
-                  <li><a href="#none" title="History">History</a></li>
-                  <li><a href="#none" title="Company">Company</a></li>
-                  <li><a href="#none" title="Savoir-Faire">Savoir-Faire</a></li>
-                  <li><a href="#none" title="The Edge Magazine">The Edge Magazine</a></li>
-                  <li><a href="#none" title="Podcast">Podcast</a></li>
-               </ul>
-            </li>
-            <li>
-               <h4><a href="#none" title="MY TAG HEUER">MY TAG HEUER</a></h4>
-            </li>
-            <li class="service">
-               <p>
-                  <a href="#none" title="Services">Services</a>
-               </p>
-               <p>
-                  <a href="#none" title="Contact us">Contact us</a>
-               </p>
-               <p>
-                  <a href="tel:+82 010-5811-2548" title="Services">+82 (010)-5811-2548</a>
-               </p>
-            </li>
-            <li class="lang clear">
-               <p>
-                  <a href="#none" title="South korea | English">South korea | English</a>
-               </p>
-               <p>
-                  <a href="#none" title="Find a TagHeuer Store">Find a TagHeuer Store</a>
-               </p>
-            </li>
-         </ul>
-      </div>
-      <!-- //m_nav -->
+         <!-- header -->
       </header>
-      <!-- header -->
-      
       
       <div id="container">
 
          <div id="visual">
             <div class="bg">
-               <iframe width="1150" height="647" src="https://www.youtube.com/embed/TdIgO8gl3ow" title="YouTube video player" frameborder="0" autoplay muted></iframe>
+               <!-- <iframe width="1150" height="647" src="https://www.youtube.com/embed/TdIgO8gl3ow" title="YouTube video player" frameborder="0" autoplay muted></iframe> -->
             </div>
             <div class="inner">
                <div class="bg_doc">
@@ -955,6 +746,7 @@
                            <span class="desc">
                               <em>TAG HEUER</em>
                               <strong>CONNECTED</strong>
+                              <span class="btn">DISCOVER THE COLLECTIONCONNECTED</span>
                            </span>
                         </a>
                      </li>
@@ -964,8 +756,9 @@
                         </p>
                         <a href="#" title="CARRERA">
                            <span class="desc">
-                              <em>TAG HEUER</em>
+                              <span>TAG HEUER</span>
                               <strong>CARRERA</strong>
+                              <span class="btn">DISCOVER THE COLLECTIONCONNECTED</span>
                            </span>
                         </a>
                      </li>
@@ -975,8 +768,9 @@
                         </p>
                         <a href="#" title="FORMULA1">
                            <span class="desc">
-                              <em>TAG HEUER</em>
+                              <span>TAG HEUER</span>
                               <strong>FORMULA1</strong>
+                              <span class="btn">DISCOVER THE COLLECTIONCONNECTED</span>
                            </span>
                         </a>
                      </li>
@@ -1024,6 +818,7 @@
                   <li><a href="#" title="Weibo">Weibo</a></li>
                   <li><a href="#" title="WeChat">WeChat</a></li>
                   <li><a href="#" title="Line">Line</a></li>
+                  <li><a href="#" title=""></a></li>
                </ul>
             </div>
             <div class="f_collection">
@@ -1078,10 +873,8 @@
                   <li><a href="#" title="Accessibility_Statement">Accessibility Statement</a></li>
                </ul>
             </div>
+
          </div>
-         <address class="copy">
-            <strong>&copy;wiwi154@naver.com</strong>
-         </address>
       </div>
       <!-- footer -->
    </div>
