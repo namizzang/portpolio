@@ -28,17 +28,34 @@
       #headerInfo li{display:inline;}
       #headerInfo li a{color:#fff;}
       
+      /* ######### nav ######## */
       #nav{width:100%; height:70px; background-color:#000;}
       #nav .inner{position:relative;}
       #nav h1{width:40px; padding-left:8px; position:absolute; left:0; top:50%; transform:translateY(-50%);}
       #nav h1 a{display:block; width:100%; height:100%;}
       #nav h1 img{width:100%;}
 
-      #nav ul{height:100%; box-sizing:border-box; float:left;}
-      #nav .gnb{width:60%; line-height:70px; padding-left:60px;}
-      #nav .gnb li{display:inline; font-size:12px; color:#fff; padding:0 14px;}
+      #nav .gnb{height:100%; box-sizing:border-box; float:left;}
+      #nav .gnb{width:60%; line-height:70px; padding-left:60px; position:relative;}
+      #nav .gnb li{display:inline-block; padding:0 14px;}
+      #nav .gnb li a{font-size:12px; color:#fff; font-weight:600;}
+      #nav .gnb li .dropdown{width:100%; height:80px; position:absolute; left:0; bottom:-80px; background-color:#f00;}
 
-      #nav .icon_area{width:30%; text-align:right; line-height:70px;}
+      #nav .dropdown{width:100%; height:20vw; position:relative; background-color:#fff; overflow:hidden; display:none;}
+      #nav .dropdown:before{content:'';}
+      #nav .drop_list{width:50%; padding-left:80px; box-sizing:border-box;}
+      #nav .drop_list:after{content:''; display:block; clear:both;}
+      #nav .drop_list .list{width:31%; height:100%; float:left; padding-right:3%; box-sizing:border-box;}
+      #nav .drop_list .list h4{padding:10px 0; font-size:12px;}
+      #nav .drop_list .list ul{width:100%;}
+      #nav .drop_list .list li{width:100%; padding-bottom:8px;}
+      #nav .drop_list .list li a{font-size:11px;}
+      #nav .drop_banner{width:50vw; height:100%; position:absolute; right:0; top:0;}
+      #nav .drop_banner a{display:block; width:100%; height:100%; overflow:hidden;}
+      #nav .drop_banner a img{width:100%; transition:transform .3s linear;}
+      #nav .drop_banner a img:hover{transform:scale(1.05);}
+
+      #nav .icon_area{width:30%; text-align:right; line-height:70px; float:left;}
       #nav .icon_area:after{content:''; display:block; clear:both}
       #nav .icon_area li{display:inline-block; margin-left:20px;}
       /* #nav .icon_area form{width:100%;}
@@ -104,6 +121,7 @@
       #product .product_sel .product_sellec img{width:100%;}
       #product .product_sel .img_area{width:100%; height:100%; position:relative;}
       #product .product_sel .img_area p{width:18rem;  position:absolute; right:0; top:50%; transform:translateY(-50%);}
+      #product .product_sel .img_area p a{width:100%; height:100%;}
       #product .img_area p img{width:100%;}
 
       #product .product_desc{width:40%; height:100%; padding:200px 30px 0 40px; float:left; box-sizing:border-box; position:relative; vertical-align:middle;}
@@ -382,6 +400,12 @@
             $(this).parent().siblings().children('ul').slideUp();
          });
 
+         $('#nav .gnb li').hover(function(){
+            $('#nav .dropdown').fadeIn(600,'linear');
+         },function(){
+            $('#nav .dropdown').delay(300).fadeOut(600,'linear');
+         });
+
       });
    </script>
 </head>
@@ -483,6 +507,52 @@
 
                </ul>
                <!-- icon_area -->
+            </div>
+            <!-- inner -->
+            <div class="dropdown">
+               <div class="inner">
+                  <div class="drop_list">
+                     <div class="list">
+                        <h4>LET US GUIDE YOU</h4>
+                        <ul>
+                           <li><a href="#none" title="Our collections">Our collections</a></li>
+                           <li><a href="#none" title="Our watches">Our watches</a></li>
+                           <li><a href="#none" title="160 Years Limited Editions">160 Years Limited Editions</a></li>
+                        </ul>
+                     </div>
+                     <div class="list">
+                        <h4>DISCOVER</h4>
+                        <ul>
+                           <li><a href="#none" title="Novelties">Novelties</a></li>
+                           <li><a href="#none" title="Watches for men">Watches for men</a></li>
+                           <li><a href="#none" title="Watches for women">Watches for women</a></li>
+                           <li><a href="#none" title="Special editions">Special editions</a></li>
+                           <li><a href="#none" title="Accessories">Accessories</a></li>
+                           <li><a href="#none" title="Essentials">Essentials</a></li>
+                           <li><a href="#none" title="Chronograph watches">Chronograph watches</a></li>
+                           <li><a href="#none" title="Classic Watches">Classic Watches</a></li>
+                           <li><a href="#none" title="Sport watches">Sport watches</a></li>
+                           <li><a href="#none" title="Tourbillon watches">Tourbillon watches</a></li>
+                        </ul>
+                     </div>
+                     <div class="list">
+                        <h4>COLLECTIONS</h4>
+                        <ul>
+                           <li><a href="#none" title="TAG Heuer Carrera">TAG Heuer Carrera</a></li>
+                           <li><a href="#none" title="TAG Heuer Aquaracer">TAG Heuer Aquaracer</a></li>
+                           <li><a href="#none" title="TAG Heuer Formula 1">TAG Heuer Formula 1</a></li>
+                           <li><a href="#none" title="TAG Heuer Monaco">TAG Heuer Monaco</a></li>
+                           <li><a href="#none" title="TAG Heuer Autavia">TAG Heuer Autavia</a></li>
+                           <li><a href="#none" title="TAG Heuer Link">TAG Heuer Link</a></li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+               <div class="drop_banner">
+                  <a href="ourwatch.html" title="ourwhach">
+                     <img src="img/Carrera_menu.jpeg" alt="ourwhach"/>
+                  </a>
+               </div>
             </div>
          </nav>
          <!-- nav -->
@@ -652,7 +722,9 @@
                      </div>
                      <div class="img_area">
                         <p>
-                           <img src="img/img0.png" alt="product"/>
+                           <a href="Connected.html" title="connected" target="_blank">
+                              <img src="img/img0.png" alt="product"/>
+                           </a>
                         </p>
                      </div>
                   </div>

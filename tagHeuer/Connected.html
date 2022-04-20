@@ -4,7 +4,7 @@
 	<title> Tagheuer </title>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
    <link rel="stylesheet" type="text/css" href="css/reset.css"/>
-   <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<style type="text/css">
    /* ######### wrap ######## */
       #wrap{min-width:1025px; width:100%;}
@@ -158,7 +158,7 @@
       #connectedSpec .spec{width:100%; display:none;}
       #connectedSpec .spec:after{content:''; display:block; clear:both;}
       #connectedSpec .spec li{width:50%; padding-right:10%; box-sizing:border-box; padding-bottom:20px; border:0; float:left;}
-      #connectedSpec .spec li strong{display:block; font-size:11px;}
+      #connectedSpec .spec li strong{display:block; font-size:11px; padding-bottom:5px;}
       #connectedSpec .spec li em{font-size:10px; color:#aaa;}
 
       #pro_sel{width:100%; padding:20px 0 80px;}
@@ -212,6 +212,21 @@
       #footer li a{font-size:12px; color:#fff;}
 
 	</style>
+   <script>
+      $(document).ready(function(){
+         $('connectedSpec ul li').click(function(){
+            var now = true;
+            if($('connectedSpec ul li').is(':visible') == false){
+               $(this).click(function(){
+                  
+               });
+            }else{
+
+            }
+
+         });
+      });
+   </script>
 </head>
 <body>
 	<div id="wrap">
@@ -532,7 +547,7 @@
                   <h3>TECHNICAL SPECIFICATIONS</h3>
                   <ul class="spec_tit">
                      <li>
-                        <a href="#" title="CASE">
+                        <a href="#none" title="CASE">
                            <span>CASE</span>
                            <i></i>
                         </a>
@@ -560,7 +575,7 @@
                         </ul>
                      </li>
                      <li>
-                        <a href="#" title="BAND">
+                        <a href="#none" title="BAND">
                            <span>BAND</span>
                            <i></i>
                         </a>
@@ -588,7 +603,7 @@
                         </ul>
                      </li>
                      <li>
-                        <a href="#" title="BATTERY">
+                        <a href="#none" title="BATTERY">
                            <span>BATTERY</span>
                            <i></i>
                         </a>
@@ -608,7 +623,7 @@
                         </ul>
                      </li>
                      <li>
-                        <a href="#" title="CONNECTIVITY">
+                        <a href="#none" title="CONNECTIVITY">
                            <span>CONNECTIVITY</span>
                            <i></i>
                         </a>
@@ -644,7 +659,7 @@
                         </ul>
                      </li>
                      <li>
-                        <a href="#" title="PROCESSOR">
+                        <a href="#none" title="PROCESSOR">
                            <span>PROCESSOR</span>
                            <i></i>
                         </a>
@@ -660,7 +675,7 @@
                         </ul>
                      </li>
                      <li>
-                        <a href="#" title="DISPLAY">
+                        <a href="#none" title="DISPLAY">
                            <span>DISPLAY</span>
                            <i></i>
                         </a>
@@ -680,7 +695,7 @@
                         </ul>
                      </li>
                      <li>
-                        <a href="#" title="REFERENCE_NUMBER">
+                        <a href="#none" title="REFERENCE_NUMBER">
                            <span>REFERENCE NUMBER</span>
                            <i></i>
                         </a>
@@ -721,6 +736,11 @@
                               <img src="img/sub2/strap1.png" alt="sel_img1">
                            </a>
                         </div>
+                        <div class="sel_img active">
+                           <a href="#" title="sellection">
+                              <img src="img/sub2/strap1_0.png" alt="sel_img_active1">
+                           </a>
+                        </div>
                         <div class="sel_text">
                            <a href="#" title="sellection">
                               <span class="promotion">NEW</span>
@@ -732,7 +752,12 @@
                      <li class="sel_box2">
                         <div class="sel_img">
                            <a href="#" title="sellection">
-                              <img src="img/sub2/strap2_0.png" alt="sel_img2">
+                              <img src="img/sub2/strap2.png" alt="sel_img2">
+                           </a>
+                        </div>
+                        <div class="sel_img active">
+                           <a href="#" title="sellection">
+                              <img src="img/sub2/strap2_0.png" alt="sel_img_active2">
                            </a>
                         </div>
                         <div class="sel_text">
@@ -749,6 +774,11 @@
                               <img src="img/sub2/strap3.png" alt="sel_img3">
                            </a>
                         </div>
+                        <div class="sel_img active">
+                           <a href="#" title="sellection">
+                              <img src="img/sub2/strap3_0.png" alt="sel_img_active3">
+                           </a>
+                        </div>
                         <div class="sel_text">
                            <a href="#" title="sellection">
                               <span class="promotion">NEW</span>
@@ -763,6 +793,11 @@
                               <img src="img/sub2/strap4.png" alt="sel_img4">
                            </a>
                         </div>
+                        <div class="sel_img active">
+                           <a href="#" title="sellection">
+                              <img src="img/sub2/strap4_0.png" alt="sel_img_active4">
+                           </a>
+                        </div>
                         <div class="sel_text">
                            <a href="#" title="sellection">
                               <span class="promotion">NEW</span>
@@ -775,6 +810,11 @@
                         <div class="sel_img">
                            <a href="#" title="sellection">
                               <img src="img/sub2/strap5.png" alt="sel_img5">
+                           </a>
+                        </div>
+                        <div class="sel_img active">
+                           <a href="#" title="sellection">
+                              <img src="img/sub2/strap5_0.png" alt="sel_img_active5">
                            </a>
                         </div>
                         <div class="sel_text">
